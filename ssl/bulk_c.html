@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- increment the v= if theres a css change, that way browsers will refresh their cache -->
+    <link rel="stylesheet" href="https://use.typekit.net/ryp8bab.css">
+    <link rel="stylesheet" href="../qs/CSize.css?ch=7wtCU" />
+    <link rel="stylesheet" href="../bulk_shared.css?ch=7wtCU" />
+    <link rel="stylesheet" href="../bulk_c.css?ch=7wtCU" />
+    <title>Bulk Sign Print - C Size</title>
+    <link rel="icon" type="image/png" href="../images/icon.png?v=01">
+    <style>
+        @media print {
+            div#outline {
+                margin-top: 14px;
+                margin-left: -40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <fieldset class="desktop tool">
+        <legend>
+            <div id="tool-head">
+                <h1 class="head-txt" style="margin: 0;">Bulk Print - <span>C Size</span></h1>
+            </div>
+        </legend>
+        <div style="margin:auto;margin-top: -15px;margin-bottom:12px; width: fit-content;display: flex;gap:4px">
+            <a id="switch-size" class="action more-tool-btn" href="bulk_b.html"><span></span><img width="120" src="../images/b_size_preview.jpg" />Switch to B Size</a>
+            <a id="go-home" class="action more-tool-btn" href="../index.html"><span></span><img width="100" src="../images/home-icon.jpg" />Home</a>
+        </div>
+
+        <div style="display: flex;flex-direction: row;align-items: center;gap:8px">
+            <button class="action" onclick="show_print_dialog()">Print</button>
+        </div>
+
+    </fieldset>
+    <fieldset class="desktop tool" style="max-width: 400px;">
+        <legend>Sale Dates</legend>
+        <div style="display: flex;flex-direction: column;align-items: center;">
+            <span style="font-family: trade-gothic-next;text-align: center;">You can change the ON SALE THRU text for ALL on-sale signs by editing this box.</span>
+            <input class="tool-input" id="date-txt" value="ON SALE NOW" autocomplete="off"/>
+            <br/>
+            <span style="font-family: trade-gothic-next;text-align: center;">Tip: You can edit the ON SALE THRU text on a per-sign basis simply by clicking on it on the sign below.</span>
+        </div>
+    </fieldset>
+    <template id="b-section">
+        <div class="print-page section-header hidden">
+            <div id="del-section-btn">
+                - Remove Section Label
+            </div>
+            <div id="outline">
+                <div></div>
+                <input id="sectionLabel" type="text" placeholder="Section Label" />
+                <div></div>
+            </div>
+            <div id="new-section-btn">
+                + Add Section Label
+            </div>
+        </div>
+    </template>
+
+    <template id="b-sign">
+        <div class="print-page">
+
+            <div id="outline">
+                <header class="noPrint">
+                    Everyone <span>Loves to Save</span>
+                    <button id="del-sign-btn" class="action" style="float:right">X</button>
+                </header>
+                <div id="desBox">
+                    <input id="mainDescription" class="editable-input" autocomplete="off" placeholder="Click here to enter item name.">
+                    <div id="altDescription">
+                        <input class="editable-input" autocomplete="off" placeholder="CLICK TO ENTER DESCRIPTION"/>
+                    </div>
+                    <input id="saleDate" class="editable-input" autocomplete="off" value="ON SALE NOW" placeholder="Click to enter a sale date"/>
+                </div>
+                <div id="price" dollar>
+                    <div id="pLeft" width="auto"></div>
+                    <div id="priceBeforeDecimal" style="width: 74%;">2</div>
+                    <div id="priceAfterDecimal" style="width: 25%">99</div>
+                    <div id="pRight"></div>
+                </div>
+                <div id="price" xforx style="display: none;">
+                    <div id="pLeft" width="auto"></div>
+                    <div id="priceBeforeDecimal" style="width:95%">
+                        <span style="font-size:90px;vertical-align: super;position:relative;top: 8px;" id="xforxval">2/$</span><span id="xforxprice" style="letter-spacing: -8px;">4</span>
+                    </div>
+                    <div id="pRight"></div>
+                </div>
+                <div id="price" bogo style="display: none;">
+                    <div id="priceBeforeDecimal" style="width: 95%;"><img src="../../images/bogo.svg" height="160" style="margin-top: 15px;"></div>
+                </div>
+                <footer>
+                    <div id="unitBox">
+                        <span style="font-family: 'trade-gothic-next-condensed';font-size:16px">UNIT PRICE</span>
+                        <div id="unitPriceBox">19.99</div>
+                        <div id="unitType">PER LB</div>
+                    </div>
+                    <div id="rightBox" style="bottom: 40px;height: 50px;">
+                        <div id="mustBuy" style="height: 20px">
+                            <div id="MustBuyInner">
+                                <input class="editable-input" placeholder="CLICK TO ENTER MUST BUY / OTHER INFO"/>
+                            </div>
+
+
+                        </div>
+                        <div id="advCardDiv">
+                            <span class="with-adv">WITH <span>AdvantEdge</span> CARD</span>
+                            <span class="retail-price">Regular Retail: </span>
+                            <div id="retail">5.99</div>
+                        </div>
+                        <div id="youSaveBoxDiv" style="display: flex;">           
+                            <div style="display: grid;grid-template-columns:50px 91px 40px;background-color: black;">             
+                                <span style="padding-left:6px" class="yousave">YOU SAVE</span>
+                                <div style="display: flex;">
+                                    <div id="youSavePriceMain" style="padding-left: 10px;">3</div>
+                                    <div id="youSavePriceAlt">99</div>
+                                </div>
+                                <div id="whenYouBuy" style="color: white;display: none">
+                                    <p style="margin-top: 1px; margin-bottom: 2px;">WHEN</p>
+                                    <p style="margin-top: -5px; margin-bottom: 1px;">YOU</p>
+                                    <div style="margin-top: -4px;" id="spanWhenYouBuy">BUY 3</div>
+                                </div>
+                            </div>   
+                        </div>
+                        <input class="editable-input" id="mixMatch" autocomplete="off" style="font-family: trade-gothic-next-condensed;width: 100%;" placeholder="Click here to enter MIX & MATCH / other info">
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </template>
+    <div class="print">
+        <div id="print-container">
+
+        </div>
+    </div>
+
+    <div id="error-popup-wrap" class="error-popup-wrapper">
+        <div class="error-popup">
+            <h3>Error</h3>
+            <p id="error-msg">Error Message.</p>
+
+            <button onclick="hide_error_popup()" class="action" id="close-error">OK</button>
+        </div>
+    </div>
+
+    <div id="print-dialog">
+        <div class="error-popup">
+            <h3>Confirm Print</h3>
+            <p>You are about to print <span id="print-count"></span> signs.</p>
+            <p>Make sure you load at least <span id="print-count"></span> signs before confirming.</p>
+
+            <h3>Important!</h3>
+            <h4>The following options MUST be set or your signs will not print correctly.</h4>
+            <div>
+                <div>
+                    <ul>
+                        <li>
+                            <p>Layout: <span>Portrait</span></p>
+                        </li>
+                        <p style="text-align: left;"><span>More Settings <svg width="20" height="20" viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg" class="c0183">
+                                    <path
+                                        d="M15.85 7.65c.2.2.2.5 0 .7l-5.46 5.49a.55.55 0 01-.78 0L4.15 8.35a.5.5 0 01.7-.7L10 12.8l5.15-5.16c.2-.2.5-.2.7 0z">
+                                    </path>
+                                </svg></span></p>
+                        <li>
+                            <p>Paper Size: <span>Letter</span></p>
+                        </li>
+                        <li>
+                            <p>Scale (%): <span>Actual size</span></p>
+                        </li>
+                        <li>
+                            <p>Margins: <span>Default</span></p>
+                        </li>
+                        <li>
+                            <p>Options: Headers and Footers: <span>UNCHECKED</span></p>
+                        </li>
+                        <li>
+                            <p>Options: Background Graphics: <span>UNCHECKED</span></p>
+                        </li>
+                    </ul>
+                </div>
+                <img id="printer-instructions-img" src="../images/c.svg">
+            </div>
+            <button onclick="cancel_print()" class="action">Cancel</button>
+            <button onclick="confirm_print()" class="action">Confirm</button>
+        </div>
+    </div>
+
+    <script src="../bulk_shared.js?v=1003"></script>
+    <script src="../sign_builder.js?v=1001"></script>
+    <script>
+        const print_container = document.getElementById("print-container")
+        const sign_template = document.getElementById("b-sign")
+
+        function create_sign(element, addSectionHeader = null) {
+            const newSign = sign_template.content.cloneNode(true);
+            
+
+            let retailPrice = element.retail;
+            let salePrice = element.sale;
+            function setSavings(priceDifference, _mustBuy = 0) {
+                priceDifference = parseFloat(priceDifference).toFixed(2)
+                if (priceDifference >= 1.0) {
+                    newSign.querySelector("#youSavePriceMain").innerHTML = priceDifference.toString().split('.')[0];
+                    newSign.querySelector("#youSavePriceAlt").innerHTML = priceDifference.toString().split('.')[1];
+                    if(priceDifference.toString().split('.')[1] == '00'){
+                        newSign.querySelector("#youSavePriceMain").innerHTML = `<span style='font-size: 20px;line-height: 35px;vertical-align: text-top;'>$</span>${ priceDifference.toString().split('.')[0]}`
+                        newSign.querySelector("#youSavePriceAlt").innerHTML = '';
+                    }
+                }
+                else {
+                    newSign.querySelector("#youSavePriceMain").innerHTML = priceDifference.toString().split('.')[1];
+                    newSign.querySelector("#youSavePriceAlt").innerHTML = ''
+                    newSign.querySelector("#youSavePriceAlt").innerHTML = '¢';
+                }
+
+                if(_mustBuy){
+                    newSign.querySelector('#whenYouBuy').style.display = 'block';
+                    newSign.querySelector('#spanWhenYouBuy').innerHTML = 'BUY '+_mustBuy
+                }else{
+                    newSign.querySelector('#whenYouBuy').style.display = 'none';
+                }
+            }
+            // PRICE TYPE
+           let priceType = 'normal';
+
+            switch (element.bogo) {
+                case 'BOGO':
+                    priceType = 'BOGO';
+                    break;
+                case 'B1G2':
+                    priceType = 'B1G2';
+                    break;
+                case 'B2G1':
+                    priceType = 'B2G1';
+                    break;
+                case 'B2G2':
+                    priceType = 'B2G2';
+                    break;
+                default:
+                    break;
+            }
+
+            if(element.xforx0 != null){
+                priceType = 'XFORX'
+            }
+            if(priceType === "XFORX"){
+                newSign.querySelector("#price[dollar]").style.display = 'none'
+                newSign.querySelector("#price[xforx]").style.display = 'unset'
+                newSign.querySelector("#price[bogo]").style.display = 'none'
+                newSign.querySelector("#MustBuyInner").style.display = 'block'
+
+                newSign.querySelector("#price[xforx] #xforxval").innerHTML = element.xforx0 + '/$'
+                newSign.querySelector("#price[xforx] #xforxprice").innerHTML = element.xforx1
+                
+                const buyAmt = parseInt(element.xforx0)
+                const buyForAmt = parseInt(element.xforx1)
+
+                salePrice = buyForAmt / buyAmt
+
+                setSavings((parseFloat(retailPrice)*buyAmt) - (parseFloat(salePrice)*buyAmt), buyAmt);
+            }
+            else if (priceType == "BOGO"){
+                newSign.querySelector("#price[dollar]").style.display = 'none'
+                newSign.querySelector("#price[xforx]").style.display = 'none'
+                newSign.querySelector("#price[bogo]").style.display = 'block'
+                newSign.querySelector('#priceBeforeDecimal img').src = "../images/bogo.svg"
+                newSign.querySelector("#MustBuyInner").style.display = 'none'
+                salePrice = retailPrice
+                setSavings(retailPrice, 2)
+            }            
+            else if (priceType == "B2G1"){
+                newSign.querySelector("#price[dollar]").style.display = 'none'
+                newSign.querySelector("#price[xforx]").style.display = 'none'
+                newSign.querySelector("#price[bogo]").style.display = 'block'
+                newSign.querySelector('#priceBeforeDecimal img').src = "../images/b2g1.svg"
+                newSign.querySelector("#MustBuyInner").style.display = 'none'
+                salePrice = retailPrice
+                setSavings(retailPrice, 3)
+            }            
+            else if (priceType == "B2G2"){
+                newSign.querySelector("#price[dollar]").style.display = 'none'
+                newSign.querySelector("#price[xforx]").style.display = 'none'
+                newSign.querySelector("#price[bogo]").style.display = 'block'
+                newSign.querySelector('#priceBeforeDecimal img').src = "../images/b2g2.svg"
+                newSign.querySelector("#MustBuyInner").style.display = 'none'
+                salePrice = retailPrice
+                setSavings(retailPrice*2, 4)
+            }
+            else if (priceType == "B1G2"){
+                newSign.querySelector("#price[dollar]").style.display = 'none'
+                newSign.querySelector("#price[xforx]").style.display = 'none'
+                newSign.querySelector("#price[bogo]").style.display = 'block'
+                newSign.querySelector('#priceBeforeDecimal img').src = "../images/b1g2.svg"
+                newSign.querySelector("#MustBuyInner").style.display = 'none'
+                salePrice = retailPrice
+                setSavings(retailPrice*2, 3)
+            }
+            else{
+                newSign.querySelector("#price[dollar]").style.display = 'unset'
+                newSign.querySelector("#price[xforx]").style.display = 'none'
+                newSign.querySelector("#price[bogo]").style.display = 'none'
+                newSign.querySelector("#MustBuyInner").style.display = 'block'
+                
+                setSavings(parseFloat(retailPrice) - parseFloat(salePrice));
+            }
+
+            if(element.onsale == 'false'){
+                newSign.querySelector('#advCardDiv').style.display='none';
+                newSign.querySelector('#youSaveBoxDiv').style.display='none';
+                newSign.querySelector('#saleDate').value = '';
+            }
+            else{
+                newSign.querySelector('#advCardDiv').style.display='inline-block';
+                newSign.querySelector('#youSaveBoxDiv').style.display='flex';
+                newSign.querySelector('#saleDate').value = document.querySelector('#date-txt').value;
+            }
+            
+            const [dollars, cents] = salePrice.toString().split('.')
+            newSign.querySelector("#priceBeforeDecimal").innerHTML = dollars
+            newSign.querySelector("#priceAfterDecimal").innerHTML = cents
+
+            if (parseFloat(salePrice) < 1){  
+                newSign.querySelector("#priceBeforeDecimal").innerHTML = cents;
+                newSign.querySelector("#priceAfterDecimal").innerHTML = "¢";
+
+                newSign.querySelector("#priceBeforeDecimal").style.width = "80%";
+                newSign.querySelector("#priceAfterDecimal").style.width = "20%";
+            }
+            else{
+                newSign.querySelector("#priceBeforeDecimal").style.width = "74%";
+                newSign.querySelector("#priceAfterDecimal").style.width = "25%";
+            }
+
+                                    // unit price
+            let unitType = element.unit;
+            let unitString = "";
+            const suffix = getUnitSuffix(unitType);
+            const unit = getUnit(unitType);
+            unitAmt = element.unitsizes
+            if(unitType == "EACH"){
+                unitAmt = "1"
+            }
+            // If we have multiple unit sizes
+            if (unitAmt.includes(',')) {
+                const sizes = unitAmt.split(',');
+                sizes.forEach(size => {
+                    unitString += `${size} ${unit}/${calcUnitPrice(size, unitType, parseFloat(salePrice), parseFloat(retailPrice), null, 1)} ${suffix}<br/>`
+                });
+                newSign.querySelector("#unitType").style.display = "None";
+                newSign.querySelector("#unitPriceBox").style.fontSize = "13px";
+                newSign.querySelector("#unitPriceBox").style.fontFamily = "trade-gothic-next-condensed"
+            }
+            else {
+                unitString = `${calcUnitPrice(unitAmt, unitType, parseFloat(salePrice), parseFloat(retailPrice), null, 1)}`;
+                newSign.querySelector("#unitType").style.display = "block";
+                newSign.querySelector("#unitType").innerHTML = suffix;
+                newSign.querySelector("#unitPriceBox").style.fontSize = "30px";
+                newSign.querySelector("#unitPriceBox").style.fontFamily = "Rockwell";
+            }
+
+            newSign.querySelector("#unitPriceBox").innerHTML = unitString;
+
+    
+
+            newSign.querySelector("#del-sign-btn").addEventListener('click', function () {
+                // it may be crazy, but this works to remove the sign and the header attachment
+                if (confirm("Are you sure you want to delete this sign? This is not reversable! You will have to re-import the signs to get this one back.")) {
+                    thisSignIndex = Array.prototype.indexOf.call(this.parentElement.parentElement.parentElement.parentElement.children, this.parentElement.parentElement.parentElement)
+                    console.log(this.parentElement.parentElement.parentElement.parentElement.children[thisSignIndex - 1])
+                    this.parentElement.parentElement.parentElement.parentElement.children[thisSignIndex - 1].remove()
+                    this.parentElement.parentElement.parentElement.remove();
+                }
+            })
+
+            newSign.querySelector('#mainDescription').value = element.name;
+            
+            newSign.querySelector('#altDescription input').value = element.description;
+
+            newSign.querySelector('#MustBuyInner input').value = element.wyb;
+            
+            newSign.querySelector('#mixMatch').value = element.mam;
+            
+            newSign.querySelector('#retail').innerHTML = element.retail
+            
+            // Bind our Add and Remove events for the section header buttons so the user can show and hide it
+            sectionHeader = document.getElementById('b-section').content.cloneNode(true);
+
+            sectionHeader.querySelector("#new-section-btn").addEventListener('click', function () {
+                this.parentElement.classList.remove('hidden')
+            })
+            sectionHeader.querySelector("#del-section-btn").addEventListener('click', function () {
+                this.parentElement.classList.add('hidden')
+            })
+
+
+            // If we've defined a header text already from QuickSign's section scan page, add it
+            if (addSectionHeader !== null) {
+                sectionHeader.querySelector("#sectionLabel").value = addSectionHeader;
+                print_container.appendChild(sectionHeader);
+                // We can't directly access the classList of sectionHeader since that's not a "real" element on the DOM
+                // this works perfectly for that to get the section header element
+                print_container.lastElementChild.classList.remove('hidden')
+            }
+            else
+                print_container.appendChild(sectionHeader);
+
+            print_container.appendChild(newSign);
+        }
+
+        function loadSigns(){
+            // Parse the JSON input
+            const jsonData = JSON.parse(localStorage.getItem('ssl_signs'));
+            let add_section_header = null;
+            jsonData.forEach(element => {
+                // Check if we've defined a section header in the QuickSign screen
+                if(element.type == 'header')
+                {
+                    // Save this to be added with the next sign
+                    add_section_header = element.text;
+                    return;
+                }
+                if(element.type != 'c'){
+                    return;
+                }
+                // call the create_sign function from bulk_X.html
+                create_sign(element, add_section_header);
+                // reset this to null now that we've used the header already
+                add_section_header = null;
+            
+            });
+        }
+        document.addEventListener('load', loadSigns());
+    </script>
+
+</body>
+
+</html>

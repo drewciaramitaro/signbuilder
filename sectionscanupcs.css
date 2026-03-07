@@ -1,0 +1,274 @@
+@font-face {
+    font-family: "trade-gothic-next";
+    src: url("fonts/Trade\ Gothic\ LT.ttf");
+}
+
+@font-face {
+    font-family: "trade-gothic-next-condensed";
+    src: url("fonts/Trade\ Gothic\ LT\ Bold\ Condensed\ No.\ 20.ttf");
+}
+
+@font-face {
+    font-family: "trade-gothic-next-condensed";
+    src: url("fonts/Trade\ Gothic\ LT\ Condensed\ No.\ 18.ttf");
+}
+
+@font-face {
+    font-family: "trade-gothic-next";
+    src: url("fonts/Trade\ Gothic\ LT\ Bold.ttf");
+}
+
+@font-face {
+    font-family: "trade-gothic-next Extended";
+    src: url("fonts/Trade\ Gothic\ LT\ Bold\ Extended.ttf");
+}
+
+@font-face {
+    font-family: "Clarendon";
+    src: url("fonts/24323.otf");
+}
+
+@font-face {
+    font-family: "ClarendonB";
+    src: url("fonts/24325.otf");
+}
+
+html {
+    background-color: var(--m32-brown);
+}
+
+.tool {
+    margin: 20px auto;
+    width: fit-content;
+    border-radius: 1rem;
+    padding: 20px;
+
+    color: #7BBA2F;
+}
+
+fieldset {
+    border: #7BBA2F 2px solid;
+    border-radius: .5rem;
+    margin: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+legend {
+    font-family: "trade-gothic-next";
+    font-weight: 800;
+}
+
+.tool input,
+.tool button {
+    font-size: large;
+}
+
+body {
+    flex-direction: column;
+}
+
+.head-txt {
+    font-family: "trade-gothic-next";
+    text-align: center;
+}
+
+.head-txt span {
+    font-family: "Clarendon";
+    font-weight: 100;
+}
+
+.action {
+    border: none;
+    padding: 4px 10px;
+    cursor: pointer;
+    background-color: rgb(50, 50, 50);
+    color: white;
+    font-family: "trade-gothic-next";
+    text-decoration: none;
+    font-size: 24px;
+    border-radius: .2rem;
+}
+
+.action:hover {
+    background-color: rgb(82, 82, 82);
+    box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.action:active {
+
+    background-color: rgb(42, 42, 42);
+    box-shadow: none;
+}
+
+.action.size-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 220px;
+    height: 220px;
+}
+
+.action.more-tool-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 160px;
+    height: 160px;
+    font-size: 20px;
+}
+
+.action img {
+    border-radius: .4rem;
+    box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.2);
+}
+
+.action:hover img {
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.4);
+}
+
+.mbarcode {
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border: 1px rgba(0, 0, 0, 0.21) solid;
+    align-items: center;
+}
+
+.barcode {
+    margin-top: -10px;
+    margin-bottom: -10px;
+}
+
+.mbarcode .lbl {
+    text-align: center;
+    padding-bottom: 0px;
+    font-weight: 600;
+    font-family: 'trade-gothic-next'
+}
+
+.barcode {
+    width: 200px;
+}
+
+.upcs {
+    max-width: 1000px;
+    color: #7BBA2F;
+    font-family: trade-gothic-next;
+    text-align: justify;
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#label{
+    font-size: .7rem;
+}
+
+.mobile-nav{
+    display: none;
+}
+
+.mnav-btn {
+    text-align: center;
+    line-height: 67px;
+    font-size: 20px;
+    text-decoration: none;
+    font-family: 'Clarendon';
+    background-color: #7BBA2F;
+    box-shadow: 0px -2px 0px 0px rgba(0, 0, 0, 0.5) inset;
+    border-radius: 0.25rem;
+    color:white;
+    height:67px;
+    width:97px;
+}
+
+.mnav-btn.active{
+    box-shadow: none;
+}
+    .mnav-btn span {
+        font-size: 8px;
+        white-space:pre-wrap
+    }
+
+    
+    #qr > div > img{
+        width: 200px;
+    }
+@media only screen and (max-width: 600px){
+    .mobile-nav{
+        display: flex;
+        position: fixed;
+        bottom: 0px;
+        height: 80px;
+        width: 100vw;
+        background-color: rgb(50, 50, 50);
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .tool{
+        margin-bottom: 80px;
+        padding: 0;
+        overflow:scroll;
+    }
+    
+    body, fieldset{
+        margin: 0;
+    }
+    .mbarcode{
+        width: 80vw;
+    }
+    .barcode{
+        width:50vw;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    
+    #qr{
+        display: none;
+    }
+}
+
+
+@media print {
+
+    *{
+        color:black !important;
+    }
+    @page {
+        margin: 0;
+    }
+
+    #qr{
+        width: 140px;
+    }
+
+    #qr > div{
+        width: 100%
+    }
+
+    #qr > div > img{
+        width: 100%
+    }
+
+    .upcs{
+        max-width: 100%;
+    }
+    .mbarcode{
+        width:220px;
+    }
+    .barcode{ 
+        width: 200px;   
+    }
+    body{
+        margin: 0;
+    }
+
+    .action{
+        display: none;
+    }
+}

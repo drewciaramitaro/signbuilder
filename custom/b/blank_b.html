@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- increment the v= if theres a css change, that way browsers will refresh their cache -->
+    <link rel="stylesheet" href="https://use.typekit.net/ryp8bab.css?ch=6a2CC">
+    <link rel="stylesheet" href="../../qs/BSize.css?ch=6a2CC" />
+    <link rel="stylesheet" href="../../bulk_shared.css?ch=6a2CC" />
+    <link rel="stylesheet" href="../../bulk_b.css?ch=6a2CC" />
+    <link rel="stylesheet" href="blank_b.css?ch=6a2CC"/>
+    <title>Custom Signs - B Blank</title>
+    <link rel="icon" type="image/png" href="../../images/icon.png?v=01">
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header class="navbar">
+        <h1 style="color: #7BBA2F;font-family: trade-gothic-next-condensed;">B-Size: Blank</h1>
+        <a class="action" href="../../index.html" style="display: flex;gap: 10px;align-items: center;"><img width="45" src="../../images/spec_sign_icon.jpg" />Back to Sign List</a>
+        <button class="action"  onclick="show_print_dialog()" style="display: flex;gap: 10px;align-items: center;"><img width="45" src="../../images/b.svg" />Print</button>
+    </header>
+
+    <fieldset class="desktop tool">
+        <legend>
+            Edit
+        </legend>
+        <h3 style="font-family: trade-gothic-next-compressed;">NEW! Edit the text directly on the sign itself.</h3>
+    </fieldset>
+    
+    <div class="print">
+        <div id="print-container">
+            <div id="b-sign">
+                <div class="print-page">
+                    <div id="outline">
+                        <header class="noPrint" style="font-size: 25px;">
+                            Edit <span>The Text Below</span>
+                            <div id="toolbar" style="display: flex;gap:5px">
+                                <div style="display: flex;flex-direction: column;border: 1px solid var(--m32-green);padding:2px;border-radius: .25rem;">
+                                    <label style="float: left;color:black;font-family: trade-gothic-next-compressed;">Font</label>
+                                    <select class="ql-font" style="border: var(--m32-brown) 1px solid;border-radius: .25rem;width: 260px;">
+                                        <option selected>Trade Gothic</option>
+                                        <option value="tradegothicnextcondensed">Trade Gothic Condensed</option>
+                                        <option value="tradegothicnextcompressed">Trade Gothic Compressed</option>
+                                        <option value="Rockwell">Rockwell</option>
+                                        <option value="Clarendon">Clarendon</option>
+                                    </select>
+                                </div>
+                                <div style="display: flex;flex-direction: column;border: 1px solid var(--m32-green);padding:2px;border-radius: .25rem;">
+                                    <label style="float: left;color:black;font-family: trade-gothic-next-compressed;">Text Size</label>
+                                    <select class="ql-size" style="border: var(--m32-brown) 1px solid;border-radius: .25rem">
+                                        <option value="small"></option>
+                                        <option selected></option>
+                                        <option value="large"></option>
+                                        <option value="huge"></option>
+                                    </select>
+                                </div>
+                                <!-- Add a bold button -->
+                                <div style="display: flex;flex-direction: row;border: 1px solid var(--m32-green);padding:2px;align-items: center;border-radius: .25rem">
+                                    <button class="ql-bold"></button>
+                                    <button class="ql-italic"></button>
+                                    <button class="ql-underline"></button>
+                                </div>
+                            </div>
+                        </header>
+                        <div id="innerContent">
+
+                            <div id="editor" style="width: 100%;">
+                                <p>
+                                    <strong class="ql-size-huge ql-font-tradegothicnextcompressed">Up To</strong>
+                                </p>
+                                <h1><strong class="ql-size-huge ql-font-Clarendon">50</strong><strong class="ql-size-huge ql-font-Rockwell">% off</strong></h1>
+                                <p><u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u></p>
+                                <p><br></p>
+                                <p><span class="ql-font-tradegothicnextcompressed ql-size-large">Priced as Marked</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="error-popup-wrap" class="error-popup-wrapper">
+        <div class="error-popup">
+            <h3>Error</h3>
+            <p id="error-msg">Error Message.</p>
+
+            <button onclick="hide_error_popup()" class="action" id="close-error">OK</button>
+        </div>
+    </div>
+
+    <div id="print-dialog">
+        <div class="error-popup">
+            <h3>Confirm Print</h3>
+            <p>You are about to print <span id="print-count"></span> signs.</p>
+            <p>Make sure you load at least <span id="print-count"></span> signs before confirming.</p>
+
+            <h3>Important!</h3>
+            <h4>The following options MUST be set or your signs will not print correctly.</h4>
+            <div>
+                <div>
+                    <ul>
+                        <li>
+                            <p>Layout: <span>Portrait</span></p>
+                        </li>
+                        <p style="text-align: left;"><span>More Settings <svg width="20" height="20" viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg" class="c0183">
+                                    <path
+                                        d="M15.85 7.65c.2.2.2.5 0 .7l-5.46 5.49a.55.55 0 01-.78 0L4.15 8.35a.5.5 0 01.7-.7L10 12.8l5.15-5.16c.2-.2.5-.2.7 0z">
+                                    </path>
+                                </svg></span></p>
+                        <li>
+                            <p>Paper Size: <span>Letter</span></p>
+                        </li>
+                        <li>
+                            <p>Scale (%): <span>Actual size</span></p>
+                        </li>
+                        <li>
+                            <p>Margins: <span>Default</span></p>
+                        </li>
+                        <li>
+                            <p>Options: Headers and Footers: <span>UNCHECKED</span></p>
+                        </li>
+                        <li>
+                            <p>Options: Background Graphics: <span>UNCHECKED</span></p>
+                        </li>
+                    </ul>
+                </div>
+                <img id="printer-instructions-img" src="../../images/b.svg">
+            </div>
+            <button onclick="cancel_print()" class="action">Cancel</button>
+            <button onclick="confirm_print()" class="action">Confirm</button>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
+    <script>// Add fonts to whitelist
+        const Font = Quill.import('formats/font');
+        Font.whitelist = ['tradegothicnextcompressed', 'tradegothicnextcondensed', 'Clarendon', 'tradegothicnext', 'Rockwell'];
+        Quill.register(Font, true);
+        const quill = new Quill('#editor', {
+            theme: 'snow',
+            modules: {
+                toolbar: '#toolbar'
+            }
+        });
+    </script>
+    <script src="../../bulk_shared.js?v=1002"></script>
+    <script src="../../sign_builder.js?v=1001"></script>
+</body>
+
+</html>

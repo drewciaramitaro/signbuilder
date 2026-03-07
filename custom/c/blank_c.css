@@ -1,0 +1,99 @@
+
+.editor-toolbar { 
+    background-color: white;
+}
+
+.CodeMirror {
+    width:600px
+}
+
+#outline{
+    grid-template-areas: "a" "b";
+    grid-template-rows: 17% 83%;
+}
+
+#innerContent{
+    text-align: center;  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;   
+     white-space: pre-wrap;
+    font-size: 1.5em;
+    font-family: 'trade-gothic-next';   
+    margin-block:0;
+}
+
+#innerContent *{
+    margin-block: 0;
+}
+
+#toolbar{
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0px 2px 6px 0px black;
+}
+
+.ql-active{
+    outline: 2px solid var(--m32-green);
+    border-radius: .25rem;
+}
+
+.ql-editor{
+    font-family: 'trade-gothic-next';
+    color:black;
+    text-align: center !important;
+    border: none;
+    outline:none;
+    font-size: 1.5em;
+    display: flex
+    ;
+        flex-direction: column;
+        justify-content: center;
+}
+.ql-container.ql-snow {
+    border: none !important;
+}
+.ql-font-tradegothicnext, #toolbar .ql-font span[data-label='Trade Gothic']::before{
+    font-family: 'trade-gothic-next';
+    font-weight: 100;
+}
+.ql-font-tradegothicnextcondensed, #toolbar .ql-font span[data-label='Trade Gothic Condensed']::before{
+    font-family: 'trade-gothic-next-condensed';
+    font-weight: 100;
+}
+.ql-font-tradegothicnextcompressed, #toolbar .ql-font span[data-label='Trade Gothic Compressed']::before{
+    font-family: 'trade-gothic-next-compressed';
+    font-weight: 100;
+}
+.ql-font-Rockwell, #toolbar .ql-font span[data-label='Rockwell']::before{
+    font-family: 'Rockwell';
+    font-weight: 100;
+}
+.ql-font-Clarendon, #toolbar .ql-font span[data-label='Clarendon']::before{
+    font-family: 'Clarendon';
+    font-weight: 100;
+}
+
+.ql-size-small{
+font-size: .5em !important
+}
+.ql-size-large{
+font-size: 1em !important
+}
+.ql-size-huge{
+font-size: 1.5em !important
+}
+
+strong{
+    font-weight: bolder !important;
+}
+
+@media print{
+    #outline{
+        grid-template-areas:
+        "a"
+        "b";
+        grid-template-rows: 100%;
+    }
+}

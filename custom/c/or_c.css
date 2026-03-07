@@ -1,0 +1,76 @@
+#price-row{
+display: grid;
+    grid-template-columns: 1fr .1fr 1fr;
+    align-items: center;
+    justify-items: center;
+}
+.or-symbol{
+    font-family: trade-gothic-next-compressed;
+    font-size: 30px;
+    background: black;
+    color: white;
+    width: fit-content;
+    padding: 5px;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+}
+
+.price-d-0{
+    font-size: 140px;
+    line-height: 138px;
+    letter-spacing: -8px;
+}
+.price-d-1{
+    font-size: 80px;
+    vertical-align: top;
+    letter-spacing: -5px;
+}
+
+.price-dollar{
+    font-family: 'Rockwell';
+    font-weight: 999;
+    display: flex;
+}
+.price-d-dollar{
+    font-size: 80px;
+    font-weight: bold;
+    vertical-align: top;
+    line-height: 110px;
+    letter-spacing: -5px;
+}
+.yousave{
+    font-size:14px;
+}
+#outline {
+    background-color: yellow;
+    height: 377px;
+    width: 517px;
+    display: grid;
+    grid-template-areas:
+        "a"
+        "b"
+        "c"
+        "e"
+        "d";
+    grid-template-rows: 17% 23% 32% 7% 21%;
+}
+
+#condition-row{
+    display: grid;
+    font-size:20px;
+    grid-template-columns: 1fr 1fr;
+}
+
+#condition-row {
+    text-align: center;
+    font-family: 'trade-gothic-next-compressed';
+}
+@media print {
+    div#outline > header {
+        display: block;
+        visibility: hidden;
+    }
+}
+#youSavePriceLb{
+    display: none;
+}

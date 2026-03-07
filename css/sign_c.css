@@ -17,11 +17,11 @@ html{
 
 .c-sign{
     background-color: yellow;
-    height:377px;
-    width:500px;
+    height: 405px;
+    width: 500px;
     display: grid;
-    grid-template-rows: 70px 12% 44% 1fr;
-    padding:0px 15px;
+    grid-template-rows: 96px 9% 43% 1fr;
+    padding: 0px 15px;
 }
 
 
@@ -36,18 +36,14 @@ html{
     }
         .c-sign header{
             background-color: black;
-            height: 60px;
-            color:white;
+            height: 73px;
+            color: white;
             font-family: Clarendon;
             text-align: center;
-            font-size: 30px;
+            font-size: 47px;
             padding: 2px;
             font-weight: 100;
-            margin:-15px;
-            border-radius: .125em .125em 0 0;
-        }
-        .c-sign{
-            border-radius: .25em;
+            margin: 0px -15px;
         }
         
     }
@@ -68,10 +64,14 @@ html{
 }
 
 #item-name{
-    font-family: "trade-gothic-next-compressed", sans-serif;
-    font-weight: 700;
+    font-family: "alternate-gothic-no-2-d", sans-serif;
+    font-weight: 400;
     font-style: normal;
     font-size: 24px;
+    transform: scaleX(1.2);
+    width: 80%;
+    margin-left: 39px;
+
 }
 #item-desc, #sale-date{
     font-family: trade-gothic-next-condensed;

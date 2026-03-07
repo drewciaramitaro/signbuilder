@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.typekit.net/ryp8bab.css">
+    <link rel="stylesheet" href="../bulk_shared.css?ch=llbWT" />
+    <title>Sign Builder - Barcode Sheet Generator</title>
+    <link rel="icon" type="image/png" href="../images/icon.png?v=01">
+    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/barcodes/JsBarcode.ean-upc.min.js"></script>
+
+    <style>
+        td{            
+            border:#2f490f 2px solid;
+
+            padding: .2rem;
+        }
+        table{
+            border-collapse: collapse;
+            font-size: 12pt;
+        }
+
+        td input{
+            appearance: none;
+            background-color: rgb(43, 43, 43);
+            
+            border: none;
+            border-bottom: 1px solid #7BBA2F;
+            margin: 4px 4px;
+            color:white;
+            font-size: 10pt !important;
+            height: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="navbar">
+        <h1 style="color: #7BBA2F;font-family: trade-gothic-next-condensed;">Barcode Sheets from Section Scan</h1>
+        <div></div>
+        <a class="action" href="../index.html" style="display: flex;gap: 10px;align-items: center;"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" style="fill: rgb(255, 255, 255);"><path d="M5 22h14a2 2 0 0 0 2-2v-9a1 1 0 0 0-.29-.71l-8-8a1 1 0 0 0-1.41 0l-8 8A1 1 0 0 0 3 11v9a2 2 0 0 0 2 2zm5-2v-5h4v5zm-5-8.59 7-7 7 7V20h-3v-5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v5H5z"></path></svg>Home</a>
+    </header>
+    <div class="tool">
+        <h2 style="font-family: trade-gothic-next-condensed">Instructions</h2>
+        <h4 style="font-family: trade-gothic-next-condensed;">Copy your section scan from StoreView by clicking and dragging from the top left of the scan (the first UPC) to the bottom right of the scan (the last BOGO section) <em style="font-family: trade-gothic-next-condensed">(The process is the same as if you used Timothy Dziedec's Section Scan Load feature on QuickSign)</em></h4>
+        <h4 style="font-family: trade-gothic-next-condensed;">Then paste it into the box below, and press Load.</h4>
+        <h4 style="font-family: trade-gothic-next-condensed;">If you want, you can change the item names.</h4>
+        <h4 style="font-family: trade-gothic-next-condensed;">Then press Print Barcodes at the bottom</h4>
+
+        <h3 style="font-family: trade-gothic-next">Note: You can separate barcodes into pages by entering a UPC of 1 during the section scan. Then, you can change the title in the table below.</h3>
+
+        <fieldset style="max-width: 800px;color: #7BBA2F;font-family: trade-gothic-next;display: flex;gap:5px;flex-direction: column;">
+            <legend style="font-size: 35px;">Paste your section scan below</legend>
+            <textarea style="margin:auto;width:95%;resize:vertical;height:300px" id="ss-input"></textarea>
+<!--upc // item name // dept // dolphin price // norm price // sale price // diff // bogo-->
+
+            <button class="action" onclick="parseLoad()">Load</button>
+        </fieldset>
+    </div>
+    
+    <fieldset style="max-width: 1900px;color: #7BBA2F;font-family: trade-gothic-next;font-weight: bold;display: flex;gap:5px;flex-direction: column;">
+        <table>
+            <thead>
+                <tr>
+                    <td>UPC</td>
+                    <td>Item Name</td>
+                    <td>Retail Price</td>
+                    <td>Sale Price</td>
+                </tr>
+            </thead>
+            <tbody id="sign-table">
+
+            </tbody>
+        </table>
+    </fieldset>
+
+    <fieldset style="max-width: 1900px;color: #7BBA2F;font-family: trade-gothic-next;gap:5px;flex-direction: column;" class="hide-on-print">
+        <legend style="font-size: 35px;">Finish Up</legend>
+        <button class="action size-btn" style="margin: auto;" onclick="generateReviewBarcodes()">
+            <span style="font-size:120px">🖨️</span>
+            Print Barcodes</button>
+        <fieldset id="success" style="display:none;flex-direction: column;justify-content: space-around;gap:10px;width: fit-content;color: #7BBA2F;">
+            <legend>Successfully loaded</legend>
+        </fieldset> 
+        <fieldset id="fail" style="flex-direction: column;justify-content: space-around;gap:10px;width: fit-content;color: #7BBA2F;display: none;">
+            <legend>Please resolve the following errors</legend>
+            <div id="fail-errors">
+                <p>• UPC xxx: Missing Unit Sizes</p>
+            </div>
+        </fieldset>
+    </fieldset>
+
+    <div id="barcode-list-container">
+        <div id="barcode-list" style="gap: 10px;display: grid;grid-template-columns: 1fr 1fr 1fr;align-items: center;justify-content: center;flex-wrap: wrap;">
+
+        </div>
+    </div>
+</body>
+
+<!-- #region Templates-->
+ <template id="item-table-row">
+    <tr>
+        <td>
+            <span id="upc"></span>
+        </td>
+        <td>
+            <a class="action hide-on-print" id="search-btn" target="none" style="font-size: 12px;" tooltip="Look up item info on PriceChopper.com">🔍</a>
+            <input id="item-name" style="width: 300px;" autocomplete="off" oninput="{
+                this.parentElement.parentElement.setAttribute('sd_name', this.value)
+            }">
+        </td>
+        <td>
+            <span id="retail-price"></span>
+        </td>        
+        <td>
+            <span id="sale-price"></span>
+        </td>
+ </template>
+
+ <template id="header-table-row">
+    <tr>
+        <td>
+            <span>New Header</span>
+        </td>
+        <td>
+            <input id="header-desc" style="width: 340px;" autocomplete="off">
+        </td>
+    </tr>
+ </template>
+
+ <template id="upc-template">
+    <div class="mbarcode" style="width: 230px;
+    display: flex;
+    flex-direction: column;
+    border: 1px rgba(0, 0, 0, 0.21) solid;
+    align-items: center;
+    margin-top: 10px;">
+        <span id="label" style="text-align: center; font-size:12px;padding-bottom: 0px;font-weight: 600;transform: translateY(10px);z-index: 99999;font-family: 'trade-gothic-next-condensed';">ITEM NAME</span>
+        <svg class="barcode" jsbarcode-format="upc" style="width: 100px;"></svg>
+    </div>
+</template>
+ <!-- #endregion -->
+
+<script>
+    function parseLoad() {
+        window.addEventListener('beforeunload', e => {
+            e.preventDefault();
+        });
+        const section_scan_array = document.querySelector('#ss-input').value.split('\n');
+        const item_template = document.querySelector("#item-table-row");
+        const header_template = document.querySelector("#header-table-row")
+        const item_table = document.querySelector("#sign-table")
+        section_scan_array.forEach(element => {
+            [upc, name, dept, dolphin_price, retail_price, sale_price, nof, hasdiff, bogo] = element.split('\t')
+
+            if(sale_price == ''){
+                sale_price = retail_price;
+            }
+
+            if(upc < 500){
+                const new_row = header_template.content.cloneNode(true);
+                const header_name = new_row.querySelector('input');
+                new_row.querySelector('tr').setAttribute('sd_isheader','')
+                item_table.appendChild(new_row);
+
+                if(upc > 200 && upc < 300){
+                    header_name.value = `Aisle ${upc - 200}`
+                }
+                else if(upc > 300 && upc < 400){
+                    let dept_name = '';
+                    switch (parseInt(upc)) {
+                        case 301:
+                            dept_name = 'Grocery'
+                            break;
+                        case 302:
+                            dept_name = 'Front End'
+                            break;
+                        case 303:
+                            dept_name = 'Floral'
+                            break;
+                        case 304:
+                            dept_name = 'Produce'
+                            break;
+                        case 308:
+                            dept_name = 'Seafood';
+                            break;
+                        case 309:
+                            dept_name = 'Meat';
+                            break;
+                        default:
+                            break;
+                    }
+                    header_name.value = dept_name;
+                }
+            }
+            else if(dolphin_price == sale_price && bogo != '•'){}
+            else{
+
+                const new_row = item_template.content.cloneNode(true);
+                const find_url = `https://shop.pricechopper.com/store/price-chopper-ny/s?k=${parseInt(upc)}`
+                
+
+                const _r = new_row.querySelector('tr')
+                _r.setAttribute('sd_upc', parseInt(upc))
+                _r.setAttribute('sd_name', name)
+                _r.setAttribute('sd_description', '')
+                _r.setAttribute('sd_retailprice', retail_price)
+                _r.setAttribute('sd_saleprice', sale_price)
+                _r.setAttribute('sd_onsale', sale_price !== retail_price)
+                _r.setAttribute('sd_unit', 'POUND')
+                _r.setAttribute('sd_unitsizes', '')
+
+
+                new_row.querySelector("#search-btn").href = find_url;
+                
+                new_row.querySelector("#upc").innerHTML = parseInt(upc);
+
+                new_row.querySelector("#item-name").value = name;
+                
+                new_row.querySelector("#retail-price").innerHTML = retail_price;
+
+                if(sale_price != retail_price)
+                    new_row.querySelector("#sale-price").innerHTML = sale_price;
+                
+                item_table.appendChild(new_row);
+            }
+            
+        });
+        
+
+    document.querySelectorAll('input').forEach(e=>{
+        e.addEventListener('input', function(t) {
+            t.target.value = t.target.value.replace('*', '•');
+        })
+    });
+    }
+
+    function saveSigns(){
+        let errors = [];
+
+        let signArr = [];
+
+
+        document.querySelector('#sign-table').querySelectorAll('tr').forEach(row => {
+            console.log(row);
+            if(!row.hasAttribute('sd_isheader')){
+                
+                if(row.getAttribute('sd_name') == ''){
+                    errors.push(`• ${row.getAttribute('sd_upc')}: Missing Item Name`)
+                }
+
+                if(row.getAttribute('sd_unitsizes') == '' && row.getAttribute('sd_unit') != 'EACH'){
+                    errors.push(`• ${row.getAttribute('sd_name')}: Missing Unit Size(s)`)
+                }
+                else if(row.getAttribute('sd_unitsizes') != '' && row.getAttribute('sd_unit') != 'EACH'){
+                    
+                }
+
+                if(!row.hasAttribute('sd_signsize')){
+                    errors.push(`• ${row.getAttribute('sd_name')}: Select a sign type`)
+                }
+            }
+
+            if(row.hasAttribute('sd_isheader')){
+                signArr.push( {
+                    type: 'header',
+                    text: row.querySelector('#header-desc').value
+                })
+            }
+            else{
+                signArr.push({
+                    name: row.getAttribute('sd_name'),
+                    retail: row.getAttribute('sd_retailprice'),
+                    sale: row.getAttribute('sd_saleprice'),
+                })
+            }
+            console.log(signArr);
+
+        });
+        console.log(errors);
+        
+        document.querySelector('#fail').style.display = 'none';
+        document.querySelector('#fail-errors').innerHTML = '';
+
+        if(errors.length>0){
+            document.querySelector('#fail').style.display = '';
+            document.querySelector('#fail-errors').innerHTML = '';
+
+            errors.forEach(err => {
+                let p = document.createElement('p');
+                p.innerHTML = err;
+                document.querySelector('#fail-errors').appendChild(p);
+            });
+
+        }
+        else{
+            document.querySelector('#success').style.display = '';
+            document.querySelector('#bulk-size').style.display = 'flex';
+            localStorage.setItem('ssl_signs', JSON.stringify(signArr));
+
+        }
+
+    }
+    
+    function generateReviewBarcodes(){
+        let upcs = []
+        const template = document.querySelector("#upc-template")
+        const barcodeList = document.querySelector("#barcode-list")
+        var printWindow = window.open('', '', 'toolbar=0,scrollbars=0,status=0');
+        document.querySelector('#sign-table').querySelectorAll('tr').forEach(row => {
+            console.log(row);
+
+            if(!row.hasAttribute('sd_isheader')){
+                const bcode = template.content.cloneNode(true);
+                const svg = bcode.querySelectorAll("svg")[0];
+                bcode.querySelector('#label').innerHTML = row.getAttribute('sd_name')
+                upcs.push(row.getAttribute('sd_upc'));
+                svg.setAttribute("jsbarcode-value", row.getAttribute('sd_upc').padStart(11, 0));
+                barcodeList.append(bcode);  
+            }
+            else{
+                h = printWindow.document.createElement('h1')
+                h.style.fontFamily = 'trade-gothic-next-compressed'
+                h.style.gridColumn = '1/-1'
+                h.style.pageBreakBefore = 'always';
+                h.innerHTML = row.querySelector('#header-desc').value
+                barcodeList.append(
+                    h
+                )
+            }
+        });
+
+        JsBarcode(".barcode").init();
+
+        printWindow.document.write(`<button class="action hide-on-print" onclick="window.print()">Click here to print</button>`)
+        printWindow.document.write(`<button class="action hide-on-print" onclick="window.close()">Close</button>`)
+        printWindow.document.write(document.querySelector("head").innerHTML);
+        printWindow.document.write(`
+        <style>
+            .barcode{
+                scale: 0.9
+            }
+
+            .mbarcode{
+                page-break-inside: avoid;
+            }
+
+            body{
+                background-color: white;
+            }
+        </style>
+        `)
+        printWindow.document.write(document.querySelector("#barcode-list-container").innerHTML)
+        printWindow.document.close();
+        printWindow.focus();
+        printWindow.print();
+        document.querySelector('#barcode-list').innerHTML = '';
+    }
+    //parseLoad();
+</script>
+
+</html>

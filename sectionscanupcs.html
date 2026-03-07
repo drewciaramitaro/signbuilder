@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.typekit.net/ryp8bab.css">
+    <link rel="stylesheet" href="sectionscanupcs.css?ch=oMKDS" />
+    <title>Section Scan UPC List</title>
+    <link rel="icon" type="image/png" href="images/icon.png?v=01">
+    
+    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/barcodes/JsBarcode.ean-upc.min.js"></script>
+</head>
+
+<body>
+    <div class="tool">
+        <h1 class="head-txt" style="color: #7BBA2F;">Section Scan Header UPCs</h1>
+        <div style="display: flex;flex-wrap: wrap;justify-content: center;">
+            
+            <fieldset class="upcs" id="qr">
+                <legend>Load on Phone</legend>
+                <div class="mbarcode">
+                    <img src="images/section_scan_header_qr.png"/>
+                    <span id="sc" style="text-align: center;" class="lbl">Scan to view this page</span>
+                    <span id="sc" style="text-align: center;" class="lbl">on your phone!</span>
+                </div>
+
+            </fieldset>
+            <fieldset style="max-width: 300px;color: #7BBA2F;font-family: trade-gothic-next;text-align: justify;">
+                <legend>Instructions</legend>
+                <p>When doing your section scan, you can scan these UPCs to add a header separator to better organize your signs.</p>
+                <p>You can just enter '1' into the 'Retail' box on the dolphin.</p>
+                <button onclick="window.print()" class="action">Print</button>
+            </fieldset>
+            <fieldset class="upcs" id="gen">
+                <legend>Generic</legend>
+                <div class="mbarcode">
+                    <svg class="barcode"
+                        jsbarcode-format="upc"
+                        jsbarcode-value="00000000001"
+                        jsbarcode-textmargin="0">
+                    </svg>
+                    <span id="label" class="lbl">UPC: "1"</span>
+                    <span id="sc" style="text-align: center;" class="lbl">Custom Header</span>
+                </div>
+
+            </fieldset>
+        </div>
+        <fieldset class="upcs" id="aisles">
+            <legend>Aisles • 2 + 2 digit aisle number</legend>
+            <div class="mbarcode">
+                <svg class="barcode"
+                    jsbarcode-format="upc"
+                    jsbarcode-value="00000000201"
+                    jsbarcode-textmargin="0">
+                </svg>
+                <span id="label" class="lbl">UPC: "201"</span>
+                <span id="sc" style="text-align: center;" class="lbl">Aisle 1</span>
+            </div>
+
+            <div class="mbarcode">
+                <svg class="barcode"
+                    jsbarcode-format="upc"
+                    jsbarcode-value="00000000202"
+                    jsbarcode-textmargin="0">
+                </svg>
+                <span id="label" class="lbl">UPC: "202"</span>
+                <span id="sc" style="text-align: center;" class="lbl">Aisle 2</span>
+            </div>
+
+            <div class="mbarcode">
+                <svg class="barcode"
+                    jsbarcode-format="upc"
+                    jsbarcode-value="00000000203"
+                    jsbarcode-textmargin="0">
+                </svg>
+                <span id="label" class="lbl">UPC: "203"</span>
+                <span id="sc" style="text-align: center;" class="lbl">Aisle 3</span>
+            </div>
+
+            <div class="mbarcode">
+                <svg class="barcode"
+                    jsbarcode-format="upc"
+                    jsbarcode-value="00000000204"
+                    jsbarcode-textmargin="0">
+                </svg>
+                <span id="label" class="lbl">UPC: "204"</span>
+                <span id="sc" style="text-align: center;" class="lbl">Aisle 4</span>
+            </div>
+
+            <div class="mbarcode">
+                <svg class="barcode"
+                    jsbarcode-format="upc"
+                    jsbarcode-value="00000000205"
+                    jsbarcode-textmargin="0">
+                </svg>
+                <span id="label" class="lbl">UPC: "205"</span>
+                <span id="sc" style="text-align: center;" class="lbl">Aisle 5</span>
+            </div>
+
+            <div class="mbarcode">
+                <svg class="barcode"
+                    jsbarcode-format="upc"
+                    jsbarcode-value="00000000206"
+                    jsbarcode-textmargin="0">
+                </svg>
+                <span id="label" class="lbl">UPC: "206"</span>
+                <span id="sc" style="text-align: center;" class="lbl">Aisle 6</span>
+            </div>
+
+            <div class="mbarcode">
+                <svg class="barcode"
+                    jsbarcode-format="upc"
+                    jsbarcode-value="00000000207"
+                    jsbarcode-textmargin="0">
+                </svg>
+                <span id="label" class="lbl">UPC: "207"</span>
+                <span id="sc" style="text-align: center;" class="lbl">Aisle 7</span>
+            </div>
+
+            <div class="mbarcode">
+                <svg class="barcode"
+                    jsbarcode-format="upc"
+                    jsbarcode-value="00000000208"
+                    jsbarcode-textmargin="0">
+                </svg>
+                <span id="label" class="lbl">UPC: "208"</span>
+                <span id="sc" style="text-align: center;" class="lbl">Aisle 8</span>
+            </div>
+
+            <div class="mbarcode">
+                <svg class="barcode"
+                    jsbarcode-format="upc"
+                    jsbarcode-value="00000000209"
+                    jsbarcode-textmargin="0">
+                </svg>
+                <span id="label" class="lbl">UPC: "209"</span>
+                <span id="sc" style="text-align: center;" class="lbl">Aisle 9</span>
+            </div>
+
+            <div class="mbarcode">
+                <svg class="barcode"
+                    jsbarcode-format="upc"
+                    jsbarcode-value="00000000210"
+                    jsbarcode-textmargin="0">
+                </svg>
+                <span id="label" class="lbl">UPC: "210"</span>
+                <span id="sc" style="text-align: center;" class="lbl">Aisle 10</span>
+            </div>
+
+            <div class="mbarcode">
+                <svg class="barcode"
+                    jsbarcode-format="upc"
+                    jsbarcode-value="00000000211"
+                    jsbarcode-textmargin="0">
+                </svg>
+                <span id="label" class="lbl">UPC: "211"</span>
+                <span id="sc" style="text-align: center;" class="lbl">Aisle 11</span>
+            </div>
+
+            <div class="mbarcode">
+                <svg class="barcode"
+                    jsbarcode-format="upc"
+                    jsbarcode-value="00000000212"
+                    jsbarcode-textmargin="0">
+                </svg>
+                <span id="label" class="lbl">UPC: "212"</span>
+                <span id="sc" style="text-align: center;" class="lbl">Aisle 12</span>
+            </div>
+
+            <div class="mbarcode">
+                <svg class="barcode"
+                    jsbarcode-format="upc"
+                    jsbarcode-value="00000000213"
+                    jsbarcode-textmargin="0">
+                </svg>
+                <span id="label" class="lbl">UPC: "213"</span>
+                <span id="sc" style="text-align: center;" class="lbl">Aisle 13</span>
+            </div>
+
+            <div class="mbarcode">
+                <svg class="barcode"
+                    jsbarcode-format="upc"
+                    jsbarcode-value="00000000214"
+                    jsbarcode-textmargin="0">
+                </svg>
+                <span id="label" class="lbl">UPC: "214"</span>
+                <span id="sc" style="text-align: center;" class="lbl">Aisle 14</span>
+            </div>
+
+            <div class="mbarcode">
+                <svg class="barcode"
+                    jsbarcode-format="upc"
+                    jsbarcode-value="00000000215"
+                    jsbarcode-textmargin="0">
+                </svg>
+                <span id="label" class="lbl">UPC: "215"</span>
+                <span id="sc" style="text-align: center;" class="lbl">Aisle 15</span>
+            </div>
+        </fieldset>
+
+        <fieldset class="upcs" id="depts">
+            <legend>Departments • 3 + 2 digit Department Number</legend>
+            
+
+            <div class="mbarcode">
+                <svg class="barcode"
+                    jsbarcode-format="upc"
+                    jsbarcode-value="00000000301"
+                    jsbarcode-textmargin="0">
+                </svg>
+                <span id="label" class="lbl">UPC: "301"</span>
+                <span id="sc" style="text-align: center;" class="lbl">Grocery</span>
+            </div>
+            <div class="mbarcode">
+                <svg class="barcode"
+                    jsbarcode-format="upc"
+                    jsbarcode-value="00000000302"
+                    jsbarcode-textmargin="0">
+                </svg>
+                <span id="label" class="lbl">UPC: "302"</span>
+                <span id="sc" style="text-align: center;" class="lbl">Front End</span>
+            </div>
+            <div class="mbarcode">
+                <svg class="barcode"
+                    jsbarcode-format="upc"
+                    jsbarcode-value="00000000303"
+                    jsbarcode-textmargin="0">
+                </svg>
+                <span id="label" class="lbl">UPC: "303"</span>
+                <span id="sc" style="text-align: center;" class="lbl">Floral</span>
+            </div>
+            <div class="mbarcode">
+                <svg class="barcode"
+                    jsbarcode-format="upc"
+                    jsbarcode-value="00000000304"
+                    jsbarcode-textmargin="0">
+                </svg>
+                <span id="label" class="lbl">UPC: "304"</span>
+                <span id="sc" style="text-align: center;" class="lbl">Produce</span>
+            </div>
+            <div class="mbarcode">
+                <svg class="barcode"
+                    jsbarcode-format="upc"
+                    jsbarcode-value="00000000305"
+                    jsbarcode-textmargin="0">
+                </svg>
+                <span id="label" class="lbl">UPC: "305"</span>
+                <span id="sc" style="text-align: center;" class="lbl">Deli</span>
+            </div>
+            <div class="mbarcode">
+                <svg class="barcode"
+                    jsbarcode-format="upc"
+                    jsbarcode-value="00000000306"
+                    jsbarcode-textmargin="0">
+                </svg>
+                <span id="label" class="lbl">UPC: "306"</span>
+                <span id="sc" style="text-align: center;" class="lbl">Food Service</span>
+            </div>
+            <div class="mbarcode">
+                <svg class="barcode"
+                    jsbarcode-format="upc"
+                    jsbarcode-value="00000000307"
+                    jsbarcode-textmargin="0">
+                </svg>
+                <span id="label" class="lbl">UPC: "307"</span>
+                <span id="sc" style="text-align: center;" class="lbl">Bakery</span>
+            </div>
+            <div class="mbarcode">
+                <svg class="barcode"
+                    jsbarcode-format="upc"
+                    jsbarcode-value="00000000308"
+                    jsbarcode-textmargin="0">
+                </svg>
+                <span id="label" class="lbl">UPC: "308"</span>
+                <span id="sc" style="text-align: center;" class="lbl">Seafood</span>
+            </div>            <div class="mbarcode">
+                <svg class="barcode"
+                    jsbarcode-format="upc"
+                    jsbarcode-value="00000000309"
+                    jsbarcode-textmargin="0">
+                </svg>
+                <span id="label" class="lbl">UPC: "309"</span>
+                <span id="sc" style="text-align: center;" class="lbl">Meat</span>
+            </div>            <div class="mbarcode">
+                <svg class="barcode"
+                    jsbarcode-format="upc"
+                    jsbarcode-value="00000000310"
+                    jsbarcode-textmargin="0">
+                </svg>
+                <span id="label" class="lbl">UPC: "310"</span>
+                <span id="sc" style="text-align: center;" class="lbl">Beer/wine</span>
+            </div>
+        </fieldset>
+    </div>
+    
+    <div class="mobile-nav">
+        <a class="mnav-btn" href="index.html">&lt; Back</a>
+        <a class="mnav-btn" href="#gen">Generic</a>
+        <a class="mnav-btn" href="#aisles">Aisles</a>
+        <a class="mnav-btn" href="#depts">Depts</a>
+    </div>
+    <script>
+        JsBarcode(".barcode").init();
+    </script>
+</body>
+
+</html>
