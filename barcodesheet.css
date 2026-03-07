@@ -1,0 +1,161 @@
+
+body {
+    background: #24180D;
+    width: fit-content;
+    margin: auto;
+    font-family: 'trade-gothic-next-condensed', sans-serif;
+}
+
+.error-popup-wrapper {
+    background: linear-gradient(0deg, rgba(0,0,0,0.4) 53%, rgba(85,6,6,0.4) 100%);
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: none;
+    z-index: 999;
+}
+.error-popup-wrapper.showing {
+    display: flex;
+}
+.error-popup {
+    background-color: #fff;
+    border-left: 3px red solid;
+    border-right: 3px red solid;
+    width: 700px;
+    margin: auto;
+    padding: 10px;
+}
+.error-popup h3 {
+    margin-top: 4px;
+    text-align: center;
+    font-size: 30px;
+    color: #f00;
+    font-family: 'Clarendon';
+}
+.error-popup #error-msg {
+    margin: auto;
+    text-align: center;
+    color: #3a3a3a;
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-family: 'trade-gothic-next-condensed', sans-serif;
+}
+.error-popup #close-error {
+    margin: auto;
+    float: right;
+    font-size: 20px;
+    width: 120px;
+}
+
+.tool {
+    width: fit-content;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 15px auto;
+}
+.tool input,
+.tool button {
+    font-size: 25px;
+}
+
+.input-grp {
+    display: flex;
+    flex-direction: column;
+    margin: 3px;
+    padding: 4px;
+    border-radius: .4rem;
+}
+
+#content-barcodegen {
+    width: 700px;
+    margin-bottom: 50px;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.089);
+    border: 1px solid rgba(0, 0, 0, 0.144);
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header {
+    text-align: center;
+    padding-bottom: 20px;
+}
+.header-input {
+    font-family: 'Clarendon';
+    font-size: 20px;
+    padding: 10px;
+    font-weight: bold;
+    width: min-content;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.mbarcode {
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+    border: 1px rgba(0, 0, 0, 0.21) solid;
+    align-items: center;
+    margin-top: 10px;
+    position: relative;
+}
+.mbarcode .day {
+    padding-top: 0px;
+}
+.barcode {
+    width: 200px;
+}
+#barcodes {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+.mbarcode .delete {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.mbarcode:hover .delete {
+    display: block;
+}
+
+input:focus-visible {
+    outline: 1px solid rgba(0, 0, 0, 0.299);
+}
+
+.day{
+    font-family: 'Clarendon';
+}
+
+@media print {
+    .delete {
+        display: none !important;
+    }
+    .error-popup {
+        display: none !important;
+    }
+    .tool {
+        display: none !important;
+    }
+    .header-input {
+        margin-top: 15px;
+        border: none;
+        font-family: 'Clarendon';
+        font-size: large;
+        padding: 0px 10px;
+    }
+
+    #content-barcodegen {
+        box-shadow: none;
+        border: none;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.typekit.net/ryp8bab.css">
+    <link rel="stylesheet" href="../bulk_shared.css?ch=SkfNH" />
+    <title>Recent Signs</title>
+    <link rel="icon" type="image/png" href="../images/icon.png?v=01">
+</head>
+
+<style>
+    .recent-sign{
+        background-color: rgb(50, 50, 50);
+        font-family: trade-gothic-next-condensed;
+        padding:5px;
+        border-radius: .2rem;
+    }
+    .recent-sign #signname {
+        margin: 0;
+        font-family: trade-gothic-next-compressed;
+        font-size: 14px;
+        grid-column: span 3 / span 3;
+    }  
+
+    .recent-sign #time{
+        grid-column: span 3 / span 3;
+        font-size: 10px;
+        color: gray;
+        margin: 0;
+    }
+
+    .sign-type-grid {
+    grid-auto-rows: 110px;
+    }
+</style>
+
+<body>
+    <header class="navbar">
+        <h1 style="color: #7BBA2F;font-family: trade-gothic-next-condensed;">Recent Signs</h1>
+        <span></span>
+        <a class="action" href="../index.html" style="display: flex;gap: 10px;align-items: center;"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" style="fill: rgb(255, 255, 255);"><path d="M5 22h14a2 2 0 0 0 2-2v-9a1 1 0 0 0-.29-.71l-8-8a1 1 0 0 0-1.41 0l-8 8A1 1 0 0 0 3 11v9a2 2 0 0 0 2 2zm5-2v-5h4v5zm-5-8.59 7-7 7 7V20h-3v-5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v5H5z"></path></svg>Home</a>
+
+    </header>
+    <div class="tool">
+        <p style="width: 700px;font-family: 'trade-gothic-next-condensed';text-align: justify;">
+            Every time you press the "Print" button on a sign page, it will be saved here for easy access later. You can open the sign as either a B-Size or C-Size sign by clicking the respective button next to the sign information. This will open the sign with all the details pre-filled.
+        </p>
+        <div>
+            <div class="sign-type-grid">
+
+            <template id="recent-sign-template">
+                <div class="recent-sign" style="display: grid;grid-template-columns: 1fr 1fr 1fr;gap:5px;align-items: center;justify-content: space-between;">
+                    <p id="signname">NAME</p>
+                    <p id="signprice">4.99</p>
+                    <a id="open-b" tooltip="Open as B Size"><img src="../images/b_size_preview.jpg" height="50px"></a>
+                    <a id="open-c" tooltip="Open as C Size"><img src="../images/c_size_preview.jpg" height="40px"></a>
+                    <small id="time">time</small>
+                </div>
+            </template>
+    
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        window.onload = function() {
+            const recentSigns = JSON.parse(localStorage.getItem('savedSigns')) || [];
+            recentSigns.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+            recentSigns.splice(50);
+            const signGrid = document.querySelector('.sign-type-grid');
+            const template = document.getElementById('recent-sign-template');
+
+            recentSigns.forEach(sign => {
+                const signElement = template.content.cloneNode(true);
+                signElement.querySelector('#signname').textContent = sign.name;
+                signElement.querySelector('#signprice').textContent = sign.sale;
+                signElement.querySelector('#time').textContent = new Date(sign.timestamp).toLocaleString();
+
+                const query_params = new URLSearchParams({
+                    name: sign.name,
+                    description: sign.description,
+                    retail: sign.retail,
+                    sale: sign.sale,
+                    onsale: sign.onsale,
+                    xforx0: sign.xforx0,
+                    xforx1: sign.xforx1,
+                    bogo: sign.bogo,
+                    unit: sign.unit,
+                    unitsizes: sign.unitsizes,
+                    wyb: sign.wyb,
+                    mam: sign.mam
+                })
+
+                signElement.querySelector('#open-b').href = `b/custom_b.html?${query_params.toString()}`;
+                signElement.querySelector('#open-c').href = `c/custom_c.html?${query_params.toString()}`;
+                signGrid.appendChild(signElement);
+            });
+        };
+    </script>
+
+</body>
+
+</html>

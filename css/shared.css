@@ -1,0 +1,701 @@
+/* I should ideally change all these to be one font-family but with different weights */
+
+:root{
+    --m32-brown: #24180D;
+    --m32-green: #7BBA2F;
+}
+
+@font-face {
+    font-family: "Clarendon";
+    font-weight: normal;
+    src: url("../fonts/24323.otf");
+}
+
+@font-face {
+    font-family: "Clarendon";
+    font-weight: bold;
+    src: url("../fonts/24325.otf");
+}
+@font-face {
+    font-family: "Rockwell";
+    src: url("../fonts/ROCK.TTF");
+    font-weight: normal;
+}
+@font-face {
+    font-family: "Rockwell";
+    src: url("../fonts/ROCKB.TTF");
+    font-weight: bold;
+}
+
+
+
+
+@font-face {
+    font-family: "n";
+    src: url("../fonts/ROCC____.TTF");
+    font-weight: normal;
+}
+@font-face {
+    font-family: "RockwellCondensed";
+    src: url("../fonts/ROCCB___.TTF");
+    font-weight: bold;
+}
+
+
+
+html {
+    background-color: var(--m32-brown);
+}
+
+.tool {
+    width: fit-content;
+    padding: 20px;
+    margin: 15px auto;
+    color: #7BBA2F;
+}
+
+fieldset, details {
+    border: #7BBA2F 2px solid;
+    border-radius: .4rem;
+    margin: 15px auto;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+details{
+    padding:10px;
+    interpolate-size: allow-keywords;
+}
+
+details::details-content{
+    block-size: 0;
+    overflow: hidden;
+    transition: 
+        block-size .2s,
+        content-visibility .2s;
+    transition-behavior: allow-discrete;
+}
+
+details[open]::details-content{
+    block-size: auto;
+}
+summary{
+    font-family: 'trade-gothic-next-compressed';
+    font-weight: bold;
+    cursor: pointer;
+}
+
+legend {
+    font-family: "trade-gothic-next";
+    font-weight: 800;
+}
+
+.tool input,
+.tool button {
+    font-size: large;
+}
+
+
+body {
+    flex-direction: column;
+}
+
+.head-txt {
+    font-family: "trade-gothic-next";
+    text-align: center;
+}
+
+.head-txt span {
+    font-family: "Clarendon";
+    font-weight: 100;
+}
+
+.action {
+    border: none;
+    padding: 4px 10px;
+    cursor: pointer;
+    background-color: rgb(50, 50, 50);
+    color: white;
+    font-family: "trade-gothic-next";
+    text-decoration: none;
+    font-size: 24px;
+    border-radius: .2rem;
+    transition: background-color .2s;
+}
+
+.action:hover {
+    background-color: rgb(82, 82, 82);
+    box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.action:active {
+    
+    background-color: rgb(42, 42, 42);
+    box-shadow: none;
+}
+
+.action.size-btn{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content:space-between;
+    width: 220px;
+    height:220px;
+}
+.action.more-tool-btn{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content:space-between;
+    width: 160px;
+    height:160px;
+    font-size:20px;
+}
+
+.action img{
+    border-radius: .4rem;
+    box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.2);
+}
+
+.action:hover img{
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.4);
+}
+
+#tool-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.section-header #outline input {
+    text-align: center;
+    vertical-align: middle;
+    font-family: 'Clarendon';
+    font-size: 3rem;
+    height: 100%;
+    scale: 0.9;
+}
+
+.section-header #outline {
+    grid-template-rows: 10% 80% 10%;
+}
+
+
+.section-header.hidden #outline {
+    display: none;
+}
+
+.top-row{
+    display:none;
+}
+
+.section-header:not(.section-header.hidden) #new-section-btn {
+    display: none;
+}
+
+#stor-input, .tool-input {
+    appearance: none;
+    all: unset;
+    font-size: 12px;
+    width: 250px;
+    height: 100%;
+    padding: 5px;
+    font-family: 'trade-gothic-next';
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-bottom: 1px #7BBA2F solid;
+    color:white;
+    border-radius: .2rem .2rem 0 0;
+}
+
+#stor-input:focus, .tool-input:focus{
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+.tool-input:disabled{
+    color:rgba(255, 255, 255, 0.5)
+}
+
+
+.tool-input:invalid{
+    
+    border-bottom: 1px #ba2f2f solid;
+}
+#MustBuyInner input{
+    text-align: right;
+    font-family: 'trade-gothic-next-condensed';
+    font-weight: lighter;
+    width: 100%;
+}
+
+#mainDescription {
+    font-family: "trade-gothic-next-compressed", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+#altDescription input{
+    font-family: 'trade-gothic-next-condensed';
+    font-weight: lighter;
+    width: 100%;
+}
+
+.editable-input{
+    border: none;
+    background: none;
+    appearance: none;
+    all: unset;
+    cursor: text;
+}
+.editable-input::placeholder{
+    font-style:italic;
+    color: rgba(0, 0, 0, 0.4);
+}
+.editable-input:hover {
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+.editable-input:focus{
+    border-bottom: 2px #7BBA2F solid;
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+.editable-input:hover::placeholder{
+    color: rgba(0, 0, 0, 0.2);
+}
+
+.editable-input:focus::placeholder{
+    color: rgba(0, 0, 0, 0.05);
+}
+#priceBeforeDecimal{
+    pointer-events: none;
+}
+#price{
+    pointer-events: none;
+}
+
+.print-page{
+    cursor: default;
+}
+
+input{
+    cursor: text;
+}
+
+.toggleSwitch {
+    position: relative;
+    display: inline-block;
+    width: 64px;
+    height:34px;
+    margin: 4px;
+}
+
+.toggleSwitch input{
+    display: none;
+}
+
+.switchThumb {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #363636;
+    transition: .2s ease-out;
+    border-radius: 1rem;
+}
+
+.switchThumb:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: var(--m32-brown);
+    border-radius: 1rem;
+    transition: .2s ease-out;
+  }
+
+
+  input:checked + .switchThumb {
+    background-color: #7BBA2F;
+  }
+
+  input:checked + .switchThumb:before {
+    transform: translateX(29px);
+  }
+
+  #date-txt{
+    text-align: center;
+    font-family: 'trade-gothic-next-condensed';
+    font-weight: lighter;
+  }
+
+  #unitType{
+    text-transform: uppercase;
+  }
+
+  #retail{
+    text-align: center;
+  }
+
+.mobile-flex{
+    display: none;
+}
+
+.sign-type-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap:10px;
+    grid-auto-rows: 90px;
+}
+
+
+.sign-type-btn {
+    border: none;
+    padding: 4px 10px;
+    cursor: pointer;
+    background-color: rgb(50, 50, 50);
+    color: white;
+    font-family: "trade-gothic-next-condensed";
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 24px;
+    border-radius: .5rem;
+    transition: background-color .2s, box-shadow .2s;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 80px 1fr;
+    gap: 15px;
+    justify-items: center;
+}
+
+.sign-type-btn:hover {
+    background-color: rgb(82, 82, 82);
+    box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.sign-type-btn img{
+    transition: transform .1s;
+}
+.sign-type-btn:hover img{
+    transform: scale(1.1);
+}
+
+.sign-type-btn:active {
+    background-color: rgb(42, 42, 42);
+    box-shadow: none;
+}
+.sign-type-btn img{
+    border-radius: .4rem;
+    box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.2);
+}
+
+.sign-type-btn:hover img{
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.4);
+}
+
+  @media only screen and (max-width: 600px){
+    .no-mobile{
+        display: none;
+    }
+    .mobile-flex{
+        display: flex;
+        gap: 5px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+  }
+#unitBox{
+    font-family: 'trade-gothic-next-compressed';
+    font-weight: 100;
+}
+
+@media screen {
+    .print{
+        margin:auto;
+    }
+    
+    #unitBox {
+        background-color: orange;
+    }
+
+    #outline {
+        margin-bottom: 15px;
+    }
+
+    .section-header.hidden #new-section-btn {
+        opacity: .1;
+        cursor: pointer;
+        text-align: center;
+        color: rgb(255, 255, 255);
+        margin: 5px;
+        background-color: rgba(255, 255, 255, 0.219);
+        font-family: 'trade-gothic-next-condensed';
+    }
+
+    .section-header.hidden #new-section-btn:hover {
+        opacity: 1;
+    }
+
+    .section-header.hidden #del-section-btn {
+        display: none;
+    }
+
+    .section-header:not(.section-header.hidden) #del-section-btn {
+        cursor: pointer;
+        text-align: center;
+        color: rgb(255, 255, 255);
+        margin: 5px;
+        background-color: rgba(255, 255, 255, 0.094);
+        font-family: 'trade-gothic-next-condensed';
+    }
+
+    .section-header:not(.section-header.hidden) #del-section-btn:hover {
+
+        background-color: rgba(255, 255, 255, 0.219);
+    }
+
+    .error-popup-wrapper {
+        background: rgb(0, 0, 0);
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 53%, rgba(85, 6, 6, 0.4) 100%);
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        display: none;
+        z-index: 999;
+    }
+
+    .error-popup-wrapper.showing {
+        display: flex;
+    }
+
+
+    .error-popup {
+        background-color: rgb(255, 255, 255);
+        border-left: 3px red solid;
+        border-right: 3px red solid;
+        width: 700px;
+        margin: auto;
+        padding: 10px;
+    }
+
+    .error-popup h3 {
+        margin-top: 4px;
+        text-align: center;
+        font-size: 30px;
+        color: rgb(255, 0, 0);
+        font-family: 'Clarendon';
+        font-weight: 100;
+    }
+
+    .error-popup #error-msg {
+        margin: auto;
+        text-align: center;
+        color: rgb(58, 58, 58);
+        font-size: 20px;
+        margin-bottom: 10px;
+        font-family: 'trade-gothic-next-condensed';
+    }
+
+    .error-popup #close-error {
+        margin: auto;
+        float: right;
+        font-size: 20px;
+        width: 120px;
+    }
+
+    #print-dialog, #printer-select-dialog {
+        background: rgb(0, 0, 0);
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 53%, rgba(11, 44, 3, 0.4) 100%);
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        display: none;
+        z-index: 999;
+    }
+
+    dialog:open{
+        border:none;
+        background-color: rgb(255, 255, 255);
+        border-left: 3px #7BBA2F solid;
+        border-right: 3px #7BBA2F solid;
+        padding: 10px;
+    }
+
+    dialog:open::backdrop{
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 53%, rgba(11, 44, 3, 0.4) 100%);
+    }
+
+    #print-dialog .error-popup, #printer-select-dialog .error-popup{
+        width:800px;
+    }
+
+    #print-dialog.showing, #printer-select-dialog.showing {
+        display: flex;
+    }
+
+    #print-dialog .error-popup >div, #printer-select-dialog .error-popup >div{
+        display: flex;
+    }
+
+    #print-dialog .error-popup, #printer-select-dialog .error-popup{
+        border-left: 3px #7BBA2F solid;
+        border-right: 3px #7BBA2F solid;
+    }
+    #print-dialog .error-popup h3, #printer-select-dialog .error-popup h3 {
+        color: #7BBA2F;
+        text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.164);
+    }
+
+    #print-dialog .error-popup p{
+        font-family: 'trade-gothic-next';
+        font-size: 1.2rem;
+        text-align: center;
+    }
+    #print-dialog .error-popup p span{
+        font-family: 'Clarendon';
+        font-weight: 700;
+    }
+    #print-dialog .error-popup h4 {
+        text-align: center;
+        font-size: 18px;
+        color: rgb(255, 0, 0);
+        font-family: 'Clarendon';
+        font-weight: 100;
+    }
+
+    #print-dialog .error-popup ul li p{
+        text-align: left;
+    }
+
+    #printer-instructions-img{
+        width: 300px;
+    }
+
+    [tooltip]{
+        position: relative;
+    }
+    [tooltip]::after {
+        content: attr(tooltip);
+        position: absolute;
+        left:50%;
+        top:-6px;
+        transform: translateX(-50%) translateY(-100%);
+        background: #24180D;
+        border: 1px solid #7BBA2F;
+        text-align: center;
+        color: #7BBA2F;
+        padding:5px;
+        font-size: 14px;
+        font-family: trade-gothic-next-condensed;
+        font-weight: bold;
+        min-width: 80px;
+        border-radius: .4rem;
+        pointer-events: none;
+        display: none;
+    }
+    [tooltip]:hover::after {
+        display: block
+     }
+
+     select{
+        color:white;
+        background-color: rgb(50, 50, 50);
+        border-radius: .2rem;
+        cursor: pointer;
+        transition: background-color .2s;
+     }
+     select:hover{
+        background-color: rgb(82, 82, 82);
+        border:#7BBA2F solid 1px;
+        box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.2);
+     }
+     
+     optgroup, option{
+        background-color: rgb(50, 50, 50);
+     }
+
+     .navbar{
+        background-color: #363636;
+        height: 58px;
+        padding: 4px;
+        gap: 10px;
+        display: grid;
+        grid-template-columns: 800px 250px 150px;
+        grid-template-rows: 100%;
+        border-radius: .2rem;
+        position: sticky;
+        justify-content: center;
+        width: fit-content;
+        margin: 0 auto;
+        top: 10px;
+        z-index: 99999;
+     }
+     .navbar h1{   
+         margin: auto 10px;
+        }
+
+}
+
+@media (max-width: 1280px){
+    .navbar{
+        grid-template-columns: 1fr 250px 150px;
+        width: 95vw;
+        max-width:100vw
+    }
+
+    .sign-type-grid{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap:10px;
+    }
+}
+
+
+@media print {
+    .print-page {
+        page-break-after: always;
+    }
+
+    .tool {
+        display: none;
+    }
+
+    #new-section-btn {
+        display: none;
+    }
+
+    #del-section-btn {
+        display: none;
+    }
+
+    .section-header.hidden {
+        display: none;
+    }
+
+    .error-popup-wrapper {
+        display: none;
+    }
+
+    #print-dialog {
+        display: none;
+    }
+
+    .hide-on-print {
+        display: none;
+    }
+
+    ::placeholder, .editable-input::placeholder {
+        display: none !important;
+        color: transparent !important;
+    }
+
+    .navbar{
+        display:none;
+    }
+}

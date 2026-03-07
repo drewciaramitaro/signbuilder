@@ -1,0 +1,61 @@
+.retail-price{
+    font-family: "trade-gothic-next-condensed";
+    margin-left: 80px;
+}
+
+.with-adv{
+   font-family: "trade-gothic-next-condensed";
+   font-weight: bold;
+   font-size: larger;
+   position: relative;
+   bottom: 5px;
+}
+
+.with-adv span{
+    font-family: "Clarendon";
+    font-weight: 600;
+}
+.yousave{
+    color: white;
+    font-family: "trade-gothic-next-condensed";
+    text-align: right;
+    padding-right: 12px;
+    font-size: 27px;
+    padding-top: 6px;
+    line-height: 27px;
+}
+
+.xforxval {
+    font-size: 180px;
+    vertical-align: top;
+    position: relative;
+    top: 27px;
+}
+
+#mustBuy{
+    margin-bottom: 30px;
+    display: block;   
+     text-align: right;
+    margin-right: 20px;
+}
+@page{
+    margin-top: 7%;
+}
+.price-d-dollar{
+    font-size: 200px;
+    font-weight: bold;
+    vertical-align: top;
+    line-height: 300px;
+    letter-spacing: -5px;
+}
+
+
+#priceBeforeDecimal[dbl_price]{
+    transform: scale(0.8, 0.85);
+    margin-left: 90px;
+}
+@media print{
+    #saleDate{
+        padding-left: 10px
+    }
+}
