@@ -17,10 +17,10 @@ html{
 
 .c-sign{
     background-color: yellow;
-    height: 405px;
-    width: 500px;
+    height: 380px;
+    width: 480px;
     display: grid;
-    grid-template-rows: 96px 9% 43% 1fr;
+    grid-template-rows: 96px 9% 42% 1fr;
     padding: 0px 15px;
 }
 
@@ -82,7 +82,7 @@ html{
 .desc-area{
     display: flex;
     flex-direction: column;
-    gap:6px;
+    gap:2px;
     margin-left: 5px;
 }
 
@@ -90,18 +90,19 @@ html{
     text-align: right;
     font-family: Rockwell;
     display:grid;
-    grid-template-rows: 150px 20px;
+    grid-template-rows: 134px 20px;
     pointer-events: none;
+    margin: 0px 10px;
 }
 
 .price-d-0{
-    font-size: 180px;
+    font-size: 150px;
     font-weight: bold;
-    line-height: 170px;
+    line-height: 150px;
     letter-spacing: -12px;
 }
 .price-d-1{
-    font-size: 100px;
+    font-size: 90px;
     font-weight: bold;
     vertical-align: top;
     letter-spacing: -5px;
@@ -146,7 +147,7 @@ html{
 
 .sign-bottom{
     display: grid;
-    grid-template-columns: 155px 1fr;
+    grid-template-columns: 140px 1fr;
 }
 
 .unit-box{
@@ -157,8 +158,9 @@ html{
     font-family: trade-gothic-next-compressed;
     text-align: center;
     border-radius: .15rem;
-    margin-left:-15px;
-    margin-bottom:-15px;
+    margin-left: -15px;
+    margin-bottom: -15px;
+    margin-right: -15px;
 }
 
 .up-title{
@@ -166,7 +168,7 @@ html{
 }
 
 .up-single{
-    font-size:40px;
+    font-size:30px;
     font-family: Rockwell;
     font-weight: bold;
 }
@@ -202,30 +204,30 @@ html{
 .savings .inner .ys-text{
     font-family: trade-gothic-next-compressed;
     font-weight: bold;
-    font-size: 22px;
+    font-size: 20px;
     text-align: right;
     padding-right: 10px;
     line-height: 1;
-    margin-top: 4px;
+    margin-top: 3px;
 }
 .savings .inner .ys-wyb{
     font-family: trade-gothic-next-compressed;
     font-weight: bold;
-    font-size: 15px;
+    font-size: 14px;
     text-align: left;
     padding-right: 10px;
     line-height: 1;
-    margin-top: 4px;
+    margin-top: 3px;
 }
 
 .save-price{
     font-family: Rockwell;
-    font-size: 46px;
+    font-size: 40px;
     font-weight: bold;
     display: flex;
 }
 .ys-dollar-symbol{
-    font-size: 30px;
+    font-size: 25px;
     margin-left: 0;
     vertical-align: top;
 }
@@ -233,7 +235,7 @@ html{
     font-size: 25px;
     margin-left: 0;
     vertical-align: top;
-    line-height: 42px;
+    line-height: 39px;
 }
 .reg-retail{
     font-family: trade-gothic-next-compressed;
