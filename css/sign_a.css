@@ -1,0 +1,268 @@
+
+body{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    align-content: space-around;
+    max-width: 1250px;
+}
+
+html{
+    background-color: var(--m32-brown);
+    display: flex;
+    justify-content: center;
+}
+
+
+.a-sign{
+    background-color: yellow;
+    height: 380px;
+    width: 625px;
+    display: grid;
+    grid-template-rows: 18% 58% 1fr;
+    padding: 0px 15px;
+}
+
+
+    header span{
+        color: green;
+        font-family: 'trade-gothic-next-condensed';
+    }
+    @media screen{
+        
+    .hidden{
+        opacity: 0.2;
+    }
+        
+    }
+@media print {
+    body{
+        margin:0;
+    }
+    @page {
+        size: 14in 8.5in; 
+        margin-top: .4in;
+        margin-left: .24in;
+        margin-right: .24in;
+        margin-bottom:.18in;
+    }
+
+    .hidden{
+        visibility: hidden;
+    }
+
+    .a-sign{
+            transform: scale(2.0) translateX(-.5cm); ; 
+            
+            transform-origin: top left;
+    }
+}
+
+#item-name{
+    font-family: "alternate-gothic-no-2-d", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 36px;
+    width: 100%;
+    height: 54px;
+    overflow: hidden;
+}
+#item-desc, #sale-date{
+    font-family: trade-gothic-next-condensed;
+    font-weight: 100;
+    font-size: 20px;
+    width: 100%;
+    height: 36px;
+    overflow: hidden;
+}
+
+#item-name::placeholder {
+  font-size: 24px;
+}
+#item-desc::placeholder {
+  font-size: 14px;
+}
+
+
+.desc-area{
+    display: block;
+    margin-left: 5px;
+    margin-top:30px;
+    width: 35%;
+}
+
+.price-area{
+    text-align: right;
+    font-family: Rockwell;
+    display:grid;
+    grid-template-rows: 189px 22px;
+    pointer-events: none;
+    margin: 0px 10px;
+}
+
+.price-d-0{
+    font-size: 228px;
+    font-weight: bold;
+    line-height: 204px;
+    letter-spacing: -12px;
+}
+.price-d-1{
+    font-size: 150px;
+    font-weight: bold;
+    vertical-align: top;
+    letter-spacing: -9px;
+    line-height: 152px;
+    
+}
+
+.price-d-dollar{
+    font-size: 80px;
+    font-weight: bold;
+    vertical-align: top;
+    line-height: 110px;
+    letter-spacing: -5px;
+}
+
+.price-bogo img{
+    width: 350px;
+    margin-right: 20px;
+}
+
+#when-you-buy{
+    font-family: trade-gothic-next-compressed;
+    font-weight: 100;
+    font-size: 18px;
+    pointer-events: all;
+    width: 300px;
+}
+
+#mam-txt{    
+    font-family: trade-gothic-next-compressed;
+    font-weight: 100;
+    font-size: 18px;
+}
+
+.lb{
+    font-family: trade-gothic-next-compressed;
+    position: relative;
+    font-size: 29px;
+    line-height: 0px;
+    top: -26px;
+    left: -25px;
+}
+
+.sign-bottom{
+    display: grid;
+    grid-template-columns: 140px 1fr;
+}
+
+.unit-box{
+    background-color: orange;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 25px 1fr 23px;
+    font-family: trade-gothic-next-compressed;
+    text-align: center;
+    border-radius: .15rem;
+    margin-left: -15px;
+    margin-bottom: -15px;
+    margin-right: -15px;
+}
+
+.up-title{
+    font-size: 20px;
+}
+
+.up-single{
+    font-size:30px;
+    font-family: Rockwell;
+    font-weight: bold;
+}
+
+.unit{
+    font-size:18px;
+}
+
+.savings-label{
+    display: grid;
+    grid-template-columns: 200px 1fr;
+}
+
+.savings{
+    margin-left: 20px;
+    display: grid;
+    grid-template-rows: 20px 1fr 20px;
+}
+
+.savings .inner{
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact; 
+    background-color: black !important;
+    
+    color:white;
+    display: grid;
+    grid-template-columns: 60px 1fr 44px;
+    gap: 10px;
+    width: fit-content;
+    min-width: 190px
+}
+
+.savings .inner .ys-text{
+    font-family: trade-gothic-next-compressed;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: right;
+    padding-right: 10px;
+    line-height: 1;
+    margin-top: 3px;
+}
+.savings .inner .ys-wyb{
+    font-family: trade-gothic-next-compressed;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: left;
+    padding-right: 10px;
+    line-height: 1;
+    margin-top: 3px;
+}
+
+.save-price{
+    font-family: Rockwell;
+    font-size: 40px;
+    font-weight: bold;
+    display: flex;
+}
+.ys-dollar-symbol{
+    font-size: 25px;
+    margin-left: 0;
+    vertical-align: top;
+}
+.ys-small{
+    font-size: 25px;
+    margin-left: 0;
+    vertical-align: top;
+    line-height: 39px;
+}
+.reg-retail{
+    font-family: trade-gothic-next-compressed;
+}
+
+.reg-retail-line{
+    display: inline-block;
+    width: 50px;
+    text-align: center;
+    border-bottom: 1px solid black;
+}
+dialog{
+    background-color: #24180d;
+}
+dialog:open{
+    background-color: #24180d;
+    width:80vw
+}
+
+#sign-editor{
+    margin: auto;
+}
+

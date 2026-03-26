@@ -93,3 +93,15 @@ document.querySelectorAll('input').forEach(e=>{
         t.target.value = t.target.value.replace('*', '•');
     })
 });
+
+document.querySelectorAll('textarea.dynamic-height').forEach(e=>{
+    e.addEventListener('input', function(t) {
+        t.target.style.height = "1px";
+        t.target.style.height = (t.target.scrollHeight)+"px";
+        t.target.value = t.target.value.replace('*', '•');
+    })
+});
+function rebuild_sign(sign){
+
+    
+}
