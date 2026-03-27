@@ -4,8 +4,8 @@
 <head>
     <!-- increment the v= if theres a css change, that way browsers will refresh their cache -->
     <link rel="stylesheet" href="https://use.typekit.net/ryp8bab.css">
-    <link rel="stylesheet" href="../../css/shared.css?ch=eR4tW" />
-    <link rel="stylesheet" href="../../css/sign_a.css?ch=eR4tW" />
+    <link rel="stylesheet" href="../../css/shared.css?ch=R54Ym" />
+    <link rel="stylesheet" href="../../css/sign_a.css?ch=R54Ym" />
     <title>Custom Signs - A Size</title>
     <link rel="icon" type="image/png" href="../../images/icon.png?v=01">
 </head>
@@ -175,7 +175,7 @@
 
                 <div class="desc-area">
                     <textarea onkeyup="textAreaAdjust(this)" id="item-name" class="editable-input dynamic-height" autocomplete="off" placeholder="Click here to enter item name. Use Enter to go to a new line."></textarea>
-                    <textarea onkeyup="textAreaAdjust(this)" id="item-desc" class="editable-input dynamic-height" autocomplete="off" placeholder="Click here to enter item description. Use Enter to go to a new line."></textarea>
+                    <textarea onkeyup="textAreaAdjust(this)" id="item-desc" class="editable-input dynamic-height" autocomplete="off" placeholder="Click here to enter item description."></textarea>
 
                     <input id="sale-date" class="editable-input" autocomplete="off" placeholder="Click here to enter item Sale Date." value="ON SALE NOW"/>
                 </div>
@@ -249,12 +249,13 @@
             <p>You are about to print <span id="print-count"></span> signs.</p>
             <p>Make sure you load at least <span id="print-count"></span> signs before confirming.</p>
 
-            <h3 style="color:black;background-color: red;">You will need to change the settings in next dialog to print in the LEGAL paper size! This can be found under More Settings! You will have to switch it back to LETTER after printing to restore normal functionality. Insert the sign with the unit price box on the LEFT side.</h3>
-
             <h3>Important!</h3>
             <h4>The following options MUST be set or your signs will not print correctly.</h4>
             <div>
                 <div>
+                <h3 style="color:black;background-color: red;">You will need to change the settings in next dialog to print in the LEGAL paper size! You will have to switch it back to LETTER after printing to restore normal functionality.</h3>
+                <video loop autoplay style="height:320px"><source src="/images/a_switch_to_legal.webm"></video>
+                <img id="printer-instructions-img" src="../../images/a_print_preview.png">
                     <ul>
                         <li>
                             <p>Margins: <span>Default</span></p>
@@ -267,7 +268,6 @@
                         </li>
                     </ul>
                 </div>
-                <img id="printer-instructions-img" src="../../images/a.svg">
             </div>
             <button onclick="cancel_print()" class="action">Cancel</button>
             <button onclick="confirm_print()" class="action">Confirm</button>
@@ -455,7 +455,6 @@
                 document.querySelector('.ys-text').innerHTML = 'SAVE AT LEAST'
             }
             else{
-                
                 document.querySelector('.ys-text').innerHTML = 'YOU SAVE'
             }
             

@@ -4,9 +4,9 @@
 <head>
     <!-- increment the v= if theres a css change, that way browsers will refresh their cache -->
     <link rel="stylesheet" href="https://use.typekit.net/ryp8bab.css">
-    <link rel="stylesheet" href="../../qs/CSize.css?ch=3DC9s" />
-    <link rel="stylesheet" href="../../css/shared.css?ch=3DC9s" />
-    <link rel="stylesheet" href="../../css/sign_c.css?ch=3DC9s" />
+    <link rel="stylesheet" href="../../qs/CSize.css?ch=G8501" />
+    <link rel="stylesheet" href="../../css/shared.css?ch=G8501" />
+    <link rel="stylesheet" href="../../css/sign_c.css?ch=G8501" />
     <title>Custom Signs - C Size</title>
     <link rel="icon" type="image/png" href="../../images/icon.png?v=01">
 </head>
@@ -179,9 +179,9 @@
                 </div>
 
                 <div class="desc-area">
-                    <input id="item-name" class="editable-input" autocomplete="off" placeholder="Click here to enter item name."/>
-                    
-                    <input id="item-desc" class="editable-input" autocomplete="off" placeholder="Click here to enter item description."/>
+                    <textarea onkeyup="textAreaAdjust(this)" id="item-name" class="editable-input dynamic-height" autocomplete="off" placeholder="Click here to enter item name. Use Enter to go to a new line."></textarea>
+                    <textarea onkeyup="textAreaAdjust(this)" id="item-desc" class="editable-input dynamic-height" autocomplete="off" placeholder="Click here to enter."></textarea>
+
 
                     <input id="sale-date" class="editable-input" autocomplete="off" placeholder="Click here to enter item description." value="ON SALE NOW"/>
                 </div>
@@ -526,6 +526,12 @@
             if(!on_sale){
                 document.querySelector('.savings').style.display = 'none';
                 return;
+            }
+            if(document.querySelector('#savings-type-sel').checked){
+                document.querySelector('.ys-text').innerHTML = 'SAVE AT LEAST'
+            }
+            else{
+                document.querySelector('.ys-text').innerHTML = 'YOU SAVE'
             }
             
             document.querySelector('.savings').style.display = '';
