@@ -204,8 +204,6 @@ html{
     display: grid;
     grid-template-columns: 59px 1fr 44px;
     gap: 10px;
-    width: fit-content;
-    min-width: 190px
 }
 
 .savings .inner .ys-text{
@@ -266,3 +264,40 @@ dialog:open{
     margin: auto;
 }
 
+#bonus-points{
+    border: 3px solid black;
+    display: flex;
+    align-items: center;
+    justify-items: stretch;
+    justify-content: space-evenly;
+    
+}
+
+#savings-box{
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+}
+
+#bp-number, #bp-label, #bp-wyb, #bp-wyb-label{
+    font-family: "alternate-gothic-no-2-d", sans-serif;
+}
+
+#bp-number{
+    font-size: 38px;
+}
+#bp-wyb-box{
+    width: 30px;
+}
+#bp-wyb, #bp-wyb-label{
+    font-size: 11px;
+    display: block;
+    font-family: 'trade-gothic-next-condensed';
+    font-weight: bolder;
+    text-align: right;
+}
+
+
+#bp-label{
+    width:39px;}

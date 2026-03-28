@@ -4,9 +4,9 @@
 <head>
     <!-- increment the v= if theres a css change, that way browsers will refresh their cache -->
     <link rel="stylesheet" href="https://use.typekit.net/ryp8bab.css">
-    <link rel="stylesheet" href="../../qs/CSize.css?ch=G8501" />
-    <link rel="stylesheet" href="../../css/shared.css?ch=G8501" />
-    <link rel="stylesheet" href="../../css/sign_c.css?ch=G8501" />
+    <link rel="stylesheet" href="../../qs/CSize.css?ch=dekbo" />
+    <link rel="stylesheet" href="../../css/shared.css?ch=dekbo" />
+    <link rel="stylesheet" href="../../css/sign_c.css?ch=dekbo" />
     <title>Custom Signs - C Size</title>
     <link rel="icon" type="image/png" href="../../images/icon.png?v=01">
 </head>
@@ -133,8 +133,8 @@
                 <legend>Additional Components</legend>
                     <div>
                         <span style="line-height: 35px;font-family: 'trade-gothic-next-condensed';">Bonus Savings</span>
-                        <select id="unit-type-sel" onchange="refresh()">
-                            <optgroup label="Unit Price Type">
+                        <select id="bonus-type-sel" onchange="refresh()">
+                            <optgroup label="Bonus Savings Type">
                                 <option value="NONE">None</option>
                                 <option value="BONUS_PT">Bonus Points</option>
                                 <option value="E_COUPON">Save w/ eCoupon</option>
@@ -222,15 +222,28 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="inner">
-                            <span class="ys-text">YOU SAVE</span>
-                            <div class="save-price">
-                                <span class="ys-dollar-symbol" style="display: none;">$</span>
-                                <span>1</span>
-                                <span class="ys-small">50</span>
+                        <div id="savings-box">
+                            <div class="inner">
+                                <span class="ys-text">YOU SAVE</span>
+                                <div class="save-price">
+                                    <span class="ys-dollar-symbol" style="display: none;">$</span>
+                                    <span>1</span>
+                                    <span class="ys-small">50</span>
+                                </div>
+                                <span class="ys-wyb" style="display: none;">WHEN YOU BUY 3</span>
                             </div>
-                            <span class="ys-wyb" style="display: none;">WHEN YOU BUY 3</span>
+                            <div id="bonus-points">
+                                <span id="bp-number">1000</span>
+                                <span id="bp-label">BONUS POINTS</span>
+                                <div id="bp-wyb-box">
+
+                                    <span id="bp-wyb-label">WHEN YOU</span>
+                                    <span id="bp-wyb">BUY 3</span>
+                                </div>
+                            </div>
                         </div>
+
+
                         <input id="mam-txt" class="editable-input" autocomplete="off" placeholder="Click here to enter item description."/>
                     </div>
                 </div>
@@ -374,6 +387,20 @@
             let retail_price = parseFloat(retail_price_input.value).toFixed(2);
 
             let on_sale = document.querySelector('#on-sale-sel').checked;
+
+            let bonus_type = document.querySelector('#bonus-type-sel').value;
+
+            switch (bonus_type){
+                case 'BONUS_PT':
+                    document.querySelector('#bonus-points').style.display = 'flex';
+                    break;
+
+                default:
+                    
+                    document.querySelector('#bonus-points').style.display = 'none';
+                    break;
+
+            }
 
 
             switch (price_type) {
