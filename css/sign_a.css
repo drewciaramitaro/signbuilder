@@ -41,7 +41,7 @@ html{
         margin:0;
     }
     @page {
-        size: 14in 8.5in; 
+        size: legal landscape; 
         margin-top: .4in;
         margin-left: .24in;
         margin-right: .24in;
