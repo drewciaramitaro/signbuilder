@@ -83,11 +83,6 @@ window.addEventListener('load', async () => {
     if(queryParams.get('loadFromSectScan')){
         loadFromSectionScan();
     }
-
-    const today = new Date();
-    const saturday = new Date(today.setDate(today.getDate() - today.getDay() + 6));
-    onSaleThru = `ON SALE THRU ${saturday.toLocaleDateString("en-US")}`;
-    document.querySelector('#sale-date').value = onSaleThru;
 })
 
 function show_error_popup(msg) {
