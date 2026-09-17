@@ -17,10 +17,10 @@ html{
 
 .c-sign{
     background-color: yellow;
-    height: 380px;
-    width: 480px;
+    height: 376px;
+    width: 487px;
     display: grid;
-    grid-template-rows: 96px 9% 42% 1fr;
+    grid-template-rows: 84px 9% 45% 1fr;
     padding: 0px 15px;
 }
 
@@ -154,7 +154,7 @@ html{
 
 .sign-bottom{
     display: grid;
-    grid-template-columns: 140px 1fr;
+    grid-template-columns: 120px 1fr;
 }
 
 .unit-box{
@@ -190,7 +190,7 @@ html{
 }
 
 .savings{
-    margin-left: 20px;
+    margin-left: 30px;
     display: grid;
     grid-template-rows: 20px 1fr 20px;
 }
