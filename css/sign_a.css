@@ -20,7 +20,7 @@ html{
     height: 380px;
     width: 625px;
     display: grid;
-    grid-template-rows: 18% 58% 1fr;
+    grid-template-rows: 11% 65% 1fr;
     padding: 0px 15px;
 }
 
@@ -69,7 +69,7 @@ html{
     overflow: hidden;
 }
 #item-desc, #sale-date{
-    font-family: trade-gothic-next-condensed;
+    font-family: alternate-gothic-no-2-d;
     font-weight: 100;
     font-size: 20px;
     width: 100%;
@@ -141,6 +141,7 @@ html{
     font-family: trade-gothic-next-compressed;
     font-weight: 100;
     font-size: 18px;
+    width: stretch;
 }
 
 .lb{
@@ -190,46 +191,37 @@ html{
 }
 
 .savings{
-    margin-left: 20px;
+    margin-left: 139px;
     display: grid;
     grid-template-rows: 20px 1fr 20px;
+    text-align: center;
+    justify-items: center;
+    margin-top:-25px
 }
 
 .savings .inner{
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact; 
-    background-color: black !important;
-    
-    color:white;
-    display: grid;
-    grid-template-columns: 60px 1fr 44px;
-    gap: 10px;
+    display: flex;
+    gap:10px;
     width: fit-content;
-    min-width: 190px
 }
 
 .savings .inner .ys-text{
-    font-family: trade-gothic-next-compressed;
-    font-weight: bold;
-    font-size: 20px;
+    font-family: alternate-gothic-no-2-d;
+    font-size: 30px;
     text-align: right;
-    padding-right: 10px;
     line-height: 1;
     margin-top: 3px;
 }
 .savings .inner .ys-wyb{
-    font-family: trade-gothic-next-compressed;
-    font-weight: bold;
-    font-size: 14px;
-    text-align: left;
-    padding-right: 10px;
+    font-family: alternate-gothic-no-2-d;
+    font-size: 30px;
     line-height: 1;
     margin-top: 3px;
 }
 
 .save-price{
     font-family: Rockwell;
-    font-size: 40px;
+    font-size: 30px;
     font-weight: bold;
     display: flex;
 }
@@ -239,10 +231,10 @@ html{
     vertical-align: top;
 }
 .ys-small{
-    font-size: 25px;
+    font-size: 20px;
     margin-left: 0;
     vertical-align: top;
-    line-height: 39px;
+    line-height: 30px;
 }
 .reg-retail{
     font-family: trade-gothic-next-compressed;

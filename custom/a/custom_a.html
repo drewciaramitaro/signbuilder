@@ -4,8 +4,8 @@
 <head>
     <!-- increment the v= if theres a css change, that way browsers will refresh their cache -->
     <link rel="stylesheet" href="https://use.typekit.net/ryp8bab.css">
-    <link rel="stylesheet" href="../../css/shared.css?ch=FQ4yK" />
-    <link rel="stylesheet" href="../../css/sign_a.css?ch=FQ4yK" />
+    <link rel="stylesheet" href="../../css/shared.css?ch=nUafV" />
+    <link rel="stylesheet" href="../../css/sign_a.css?ch=nUafV" />
     <title>Custom Signs - A Size</title>
     <link rel="icon" type="image/png" href="../../images/icon.png?v=01">
 </head>
@@ -78,8 +78,6 @@
                             <option value="B1G2">Buy One, Get Two</option>
                             <option value="B2G1">Buy Two, Get One</option>
                             <option value="B2G2">Buy Two, Get Two</option>
-                            <option value="B3G1">Buy Three, Get One</option>
-                            <option value="B3G1_15">Buy Three, Get One (>$15)</option>
                         </optgroup>
                     </select>
                 </div>
@@ -142,7 +140,7 @@
                         </select>
                     </div>
                     <div>
-                        <input type="checkbox" id="savings-type-sel" style="cursor:pointer;display:none;" onchange="refresh()">
+                        <input type="checkbox" id="savings-type-sel" style="cursor:pointer;display:none;" checked onchange="refresh()">
                         <span style="line-height: 35px;font-family: 'trade-gothic-next-condensed';">Savings Type</span>
                             <div>
                             <button id="_youSave" class="action" style="background-color: green;"
@@ -204,26 +202,28 @@
                     </div>
                     <div class="savings">
                         <div class="savings-label">
+             
                             <div>
-                                <span style="font-family: trade-gothic-next-compressed;font-weight: 700;">WITH</span>
+                                <span style="font-family: Clarendon;font-weight: 0;">with</span>
                                 <span style="font-family: Clarendon;font-weight: 800;">AdvantEdge</span>
-                                <span style="font-family: trade-gothic-next-compressed;font-weight: 700;">CARD</span>
+                                <span style="font-family: Clarendon;font-weight: 0;">card</span>
                             </div>
-                            <div class="reg-retail">
+                            <div class="reg-retail" style="display:none;">
                                 <span>Regular Retail: </span>
                                 <div class="reg-retail-line">
                                     <span>13.99</span>
                                 </div>
                             </div>
+                 
                         </div>
                         <div class="inner">
-                            <span class="ys-text">YOU SAVE</span>
+                            <span class="ys-text">SAVE</span>
                             <div class="save-price">
                                 <span class="ys-dollar-symbol" style="display: none;">$</span>
                                 <span>1</span>
                                 <span class="ys-small">50</span>
                             </div>
-                            <span class="ys-wyb" style="display: none;">WHEN YOU BUY 3</span>
+                            <span class="ys-wyb" style="display: none;">ON 3</span>
                         </div>
                         <input id="mam-txt" class="editable-input" autocomplete="off" placeholder="Click here to enter item description."/>
                     </div>
@@ -331,7 +331,7 @@
                     document.querySelector('.price-bogo').style.display = 'none';
                     document.querySelector('.price-xforx .price-d-1').innerHTML = `${sale_price_input_xforx1.value}/$`
                     document.querySelector('.price-xforx .price-d-0').innerHTML = `${sale_price_input_xforx2.value}`
-                    document.querySelector('.ys-wyb').innerHTML = 'WHEN YOU BUY ' + sale_price_input_xforx1.value;
+                    document.querySelector('.ys-wyb').innerHTML = ' ON ' + sale_price_input_xforx1.value;
                     document.querySelector('.ys-wyb').style.display = '';
                     break;
                 case 'BOGO':
@@ -452,7 +452,7 @@
                 document.querySelector('.ys-text').innerHTML = 'SAVE AT LEAST'
             }
             else{
-                document.querySelector('.ys-text').innerHTML = 'YOU SAVE'
+                document.querySelector('.ys-text').innerHTML = 'SAVE'
             }
             
             document.querySelector('.savings').style.display = '';
@@ -467,28 +467,28 @@
                     break;
                 case 'BOGO':
                     document.querySelector('.ys-wyb').style.display = '';
-                    document.querySelector('.ys-wyb').innerHTML = 'WHEN YOU BUY 2';
+                    document.querySelector('.ys-wyb').innerHTML = 'ON 2';
                     savings = retail_price;
                     break;
                 case 'B1G2':
                     document.querySelector('.ys-wyb').style.display = '';
-                    document.querySelector('.ys-wyb').innerHTML = 'WHEN YOU BUY 3';
+                    document.querySelector('.ys-wyb').innerHTML = 'ON 3';
                     savings = (retail_price*2).toFixed(2);
                     break;
                 case 'B2G1':
                     document.querySelector('.ys-wyb').style.display = '';
-                    document.querySelector('.ys-wyb').innerHTML = 'WHEN YOU BUY 3';
+                    document.querySelector('.ys-wyb').innerHTML = 'ON 3';
                     savings = retail_price;
                     break;
                 case 'B2G2':
                     document.querySelector('.ys-wyb').style.display = '';
-                    document.querySelector('.ys-wyb').innerHTML = 'WHEN YOU BUY 4';
+                    document.querySelector('.ys-wyb').innerHTML = 'ON 4';
                     savings = (retail_price*2).toFixed(2);
                     break;
                 case 'B3G1':
                 case 'B3G1_15ormore':
                     document.querySelector('.ys-wyb').style.display = '';
-                    document.querySelector('.ys-wyb').innerHTML = 'WHEN YOU BUY 4';
+                    document.querySelector('.ys-wyb').innerHTML = 'ON 4';
                     savings = retail_price;
                     break;
             }
