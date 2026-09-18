@@ -4,8 +4,8 @@
 <head>
     <!-- increment the v= if theres a css change, that way browsers will refresh their cache -->
     <link rel="stylesheet" href="https://use.typekit.net/ryp8bab.css">
-    <link rel="stylesheet" href="../../css/shared.css?ch=nUafV" />
-    <link rel="stylesheet" href="../../css/sign_a.css?ch=nUafV" />
+    <link rel="stylesheet" href="../../css/shared.css?ch=7tfys" />
+    <link rel="stylesheet" href="../../css/sign_a.css?ch=7tfys" />
     <title>Custom Signs - A Size</title>
     <link rel="icon" type="image/png" href="../../images/icon.png?v=01">
 </head>
@@ -143,7 +143,7 @@
                         <input type="checkbox" id="savings-type-sel" style="cursor:pointer;display:none;" checked onchange="refresh()">
                         <span style="line-height: 35px;font-family: 'trade-gothic-next-condensed';">Savings Type</span>
                             <div>
-                            <button id="_youSave" class="action" style="background-color: green;"
+                            <button id="_youSave" class="action"
                                 onclick="{
                                     document.querySelector('#_saveAtLeast').style.backgroundColor ='';
                                     document.querySelector('#_youSave').style.backgroundColor ='green';
@@ -151,7 +151,7 @@
                                     refresh();
                                 }"
                             >You Save</button>
-                            <button id="_saveAtLeast" class="action"
+                            <button id="_saveAtLeast" class="action" style="background-color: green;"
                             onclick="{
                                 document.querySelector('#_saveAtLeast').style.backgroundColor ='green';
                                 document.querySelector('#_youSave').style.backgroundColor ='';
@@ -193,14 +193,6 @@
                         <span class="lb">lb.</span>
                         <input id="when-you-buy" class="editable-input" autocomplete="off" placeholder="Click here to enter WHEN YOU BUY X"/>
                     </div>
-                </div>
-                <div class="sign-bottom">
-                    <div class="unit-box">
-                        <span class="up-title"></span>
-                        <span class="up-single">12.49</span>
-                        <span class="unit">PER LB.</span>
-                    </div>
-                    <div class="savings">
                         <div class="savings-label">
              
                             <div>
@@ -216,6 +208,15 @@
                             </div>
                  
                         </div>
+                </div>
+                <div class="sign-bottom">
+                    <div class="unit-box">
+                        <span class="up-title"></span>
+                        <span class="up-single">12.49</span>
+                        <span class="unit">PER LB.</span>
+                    </div>
+                    <div class="savings">
+
                         <div class="inner">
                             <span class="ys-text">SAVE</span>
                             <div class="save-price">

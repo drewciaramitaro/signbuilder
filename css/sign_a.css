@@ -186,8 +186,7 @@ html{
 }
 
 .savings-label{
-    display: grid;
-    grid-template-columns: 200px 1fr;
+    margin-right: 68px;
 }
 
 .savings{
@@ -196,7 +195,6 @@ html{
     grid-template-rows: 20px 1fr 20px;
     text-align: center;
     justify-items: center;
-    margin-top:-25px
 }
 
 .savings .inner{
