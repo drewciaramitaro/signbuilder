@@ -295,7 +295,12 @@
             let retail_price = parseFloat(retail_price_input.value).toFixed(2);
 
             let on_sale = document.querySelector('#on-sale-sel').checked;
-
+            if (on_sale){
+                document.querySelector('#savings-label').style.visibility = 'visible'
+            }
+            else{
+                document.querySelector('#savings-label').style.visibility = 'hidden'
+            }
 
             switch (price_type) {
                 case 'NORMAL':
